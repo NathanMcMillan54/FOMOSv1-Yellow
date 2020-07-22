@@ -1,0 +1,22 @@
+{
+  "name": "fomos",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^9.0.0"
+  },
+  "description": "FOMOS stands for Free, Open source, Mobile, Operating, System. It is an operating system that will be used on mobile devices that anyone can use. --",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbFomos/FOMOSv1-Yellow.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sbFomos/FOMOSv1-Yellow/issues"
+  },
+  "dependencies": {}
+}
