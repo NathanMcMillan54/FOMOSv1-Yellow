@@ -13,3 +13,8 @@ Since this is for Linux it should run on Linux based devices like Android device
 sh installRequirments.sh
 sh runFOMOS.sh
 ```
+
+#
+# Website
+[https://sbfomos.org/](https://sbfomos.org/)
+
