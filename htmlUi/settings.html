@@ -6,16 +6,32 @@
     <script src="../osJavaScript/power.js"></script>
     <script src="../osJavaScript/wifi.js"></script>
     <script src="../osJavaScript/deviceCare.js"></script>
+    <link rel="stylesheet" href="../css/settings.css">
     <link rel="stylesheet" href="../css/buttons.css">
 </head>
 <body>
 
-    <h1>Settings</h1>
+<div class="settings">
 
-    <button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button>
-    <p id="shutdown"></p> <p id="restart"></p>
+<div class="software">
+    <p>Software</p>
 
-    <h3>WiFi</h3>
+        <p>You are on FOMOSv1-Yellow: X</p>
+        <button class="update" type="button" onclick="update()">Update</button>
+        <p>If there is an update available restart your device</p>
+</div>
+
+<div class="general">
+    <p>General</p>
+
+        <p id="timeZone"></p>
+
+        <button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button>
+        <p id="shutdown"></p> <p id="restart"></p>
+</div>
+
+<div class="wifi">
+    <p>WiFi</p>
     <p id="localSsid"></p>
 
     <form>
@@ -24,9 +40,13 @@
         <button type="button" onclick="connectToWifi()">Connect</button>
     </form>
     <p id="connectToWifi"></p>
-
-    <h3>Device</h3>
+</div>
+<div class="device">
+    <p>Device</p>
     <p id="deviceCare"></p>
+</div>
+</div>
 
 </body>
+<script src="../jsUi/settings.js"></script>
 </html>
