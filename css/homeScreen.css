@@ -10,6 +10,21 @@ p {
     color: #ffffff;
 }
 
+.shutdown {
+    color: #ffffff;
+    background-color: #f44336;
+}
+
+.restart {
+    color: #ffffff;
+    background-color: #ff751a;
+}
+
+.keyboard {
+    color: #ffffff;
+    background-color: #0066ff;
+}
+
 .apps {
     text-align: center;
 }

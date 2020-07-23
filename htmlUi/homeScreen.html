@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>FOMOS</title>
     <link rel="stylesheet" href="../css/homeScreen.css">
+    <script src="osJavaScript/power.js"></script>
+    <script src="osJavaScript/keyboard.js"></script>
 </head>
 <body>
 
 <div class="options">
     <p id="time"></p>
+    <button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button> <button class="keyboard" type="button" onclick="keyboard()">Keyboard</button>
+    <p id="shutdown"></p> <p id="restart"></p>
 </div>
 
 <div class="apps">
