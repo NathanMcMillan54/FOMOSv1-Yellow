@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <title>Settings</title>
     <script src="../osJavaScript/power.js"></script>
+    <script src="../osJavaScript/wifi.js"></script>
+    <link rel="stylesheet" href="../css/buttons.css">
 </head>
 <body>
 
 <h1>Settings</h1>
 
-<button type="button" onclick="shutdown()">Shutdown</button> <button type="button" onclick="restart()">Restart</button>
+<button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button>
 <p id="shutdown"></p> <p id="restart"></p>
+
+<h3>WiFi</h3>
+<p id="localSsid"></p>
 
 </body>
 </html>
