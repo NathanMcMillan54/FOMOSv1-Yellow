@@ -9,13 +9,20 @@
 </head>
 <body>
 
-<h1>Settings</h1>
+    <h1>Settings</h1>
 
-<button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button>
-<p id="shutdown"></p> <p id="restart"></p>
+    <button class="shutdown" type="button" onclick="shutdown()">Shutdown</button> <button class="restart" type="button" onclick="restart()">Restart</button>
+    <p id="shutdown"></p> <p id="restart"></p>
 
-<h3>WiFi</h3>
-<p id="localSsid"></p>
+    <h3>WiFi</h3>
+    <p id="localSsid"></p>
+
+    <form>
+        <input type="text" id="ssid" placeholder="Network Name">
+        <input type="text" id="password" placeholder="Password">
+        <button type="button" onclick="connectToWifi()">Connect</button>
+    </form>
+    <p id="connectToWifi"></p>
 
 </body>
 </html>
