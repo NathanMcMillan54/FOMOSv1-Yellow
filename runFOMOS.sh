@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-/etc/init.d/
+# /etc/init.d/
 
 npm start
 
