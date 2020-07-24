@@ -6,7 +6,7 @@ var deviceCare = exec('sh osShellScripts/deviceCare.sh', (err, stdout, stderr) =
             console.log(`exec error: ${err}`);
             return;
         }
-        document.getElementById("devicCare").innerHTML = `${stdout}`
+        document.getElementById("deviceCare").innerHTML = `${stdout}`
     })
 }
 
