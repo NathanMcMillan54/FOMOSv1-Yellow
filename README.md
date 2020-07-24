@@ -9,10 +9,34 @@ Since this is for Linux it should run on Linux based devices like Android device
 #
 
 # Setup
-```bash
+```shell script
 sh installRequirments.sh
 sh runFOMOS.sh
 ```
+
+#
+
+To make Wifi commands work:
+```shell script
+sudo visudo
+```
+
+In that file type:
+```shell script
+%users  ALL=(ALL) NOPASSWD: ALL
+```
+
+This will make Wifi (nmcli) and local ssid's work without exiting FOMOS and typing in the terminal your password.
+
+#
+
+To run on startup:
+```shell script
+chmod +x /etc/init.d/runFOMOS.sh
+ln -s /etc/init.d/runFOMOS.sh /etc/rc.d/
+```
+
+Not sure if this works but it will soon if it doesn't.
 
 #
 # Website

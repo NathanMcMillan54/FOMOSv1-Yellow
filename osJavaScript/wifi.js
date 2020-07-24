@@ -1,6 +1,5 @@
 var exec = require('child_process').exec;
 
-var loadSsid = setInterval(localSsid, 5000)
 function localSsid() {
     var localSsid = exec('sh osShellScripts/localSsid.sh', (err, stdout, stderr) => {
 
