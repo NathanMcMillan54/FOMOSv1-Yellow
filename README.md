@@ -9,7 +9,7 @@ Since this is for Linux it should run on Linux based devices like Android device
 #
 
 # Setup
-These are all Linux commands and won't work on other Operating Systems.
+This only works on Linux and won't work on another OS.
 ```shell script
 sh installRequirments.sh
 sh runFOMOS.sh
@@ -24,7 +24,7 @@ sudo visudo
 
 In that file put at the very bottom:
 ```shell script
-your user name  ALL=(ALL) NOPASSWD: ALL
+your user name  ALL = NOPASSWD: ALL
 ```
 
 Delete this:
