@@ -22,12 +22,15 @@ To make Wifi commands work:
 sudo visudo
 ```
 
-In that file type:
+In that file put at the very bottom:
 ```shell script
 your user name  ALL=(ALL) NOPASSWD: ALL
 ```
 
-If there is anything that resets the sudo password regularly delete it.
+Delete this:
+```shell script
+Defualts  env_reset
+```
 
 This will make Wifi (nmcli) and local ssid's work without exiting FOMOS and typing in the terminal your password.
 This also makes you device very insecure so you can change this to only work with commands that FOMOS runs.
