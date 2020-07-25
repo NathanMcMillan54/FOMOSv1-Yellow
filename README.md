@@ -9,6 +9,7 @@ Since this is for Linux it should run on Linux based devices like Android device
 #
 
 # Setup
+These are all Linux commands and won't work on other Operating Systems.
 ```shell script
 sh installRequirments.sh
 sh runFOMOS.sh
@@ -23,10 +24,13 @@ sudo visudo
 
 In that file type:
 ```shell script
-%users  ALL=(ALL) NOPASSWD: ALL
+your user name  ALL=(ALL) NOPASSWD: ALL
 ```
 
+If there is anything that resets the sudo password regularly delete it.
+
 This will make Wifi (nmcli) and local ssid's work without exiting FOMOS and typing in the terminal your password.
+This also makes you device very insecure so you can change this to only work with commands that FOMOS runs.
 
 #
 
@@ -41,4 +45,3 @@ Not sure if this works but it will soon if it doesn't.
 #
 # Website
 [https://sbfomos.org/](https://sbfomos.org/)
-

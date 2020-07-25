@@ -7,6 +7,12 @@ settingsBtn.addEventListener('click', function () {
     main.settingsWindow();
 })
 
+var googleBtn = document.getElementById('googleBtn');
+
+googleBtn.addEventListener('click', function () {
+    main.google();
+})
+
 var calculatorBtn = document.getElementById('calculatorBtn');
 
 calculatorBtn.addEventListener('click', function () {
