@@ -8,6 +8,7 @@
     <script src="../osJavaScript/deviceCare.js"></script>
     <script src="../osJavaScript/update.js"></script>
     <script src="../osJavaScript/wifi.js"></script>
+    <script src="../osJavaScript/exit.js"></script>
     <link rel="stylesheet" href="../css/settings.css">
     <link rel="stylesheet" href="../css/buttons.css">
 </head>
@@ -16,14 +17,14 @@
 <div class="settings">
 
 <div class="software">
-    <p>Software</p>
+    <h3>Software</h3>
 
         <p>You are on FOMOSv1-Yellow: X</p>
         <button class="update" type="button" onclick="update()">Update</button>
 </div>
 
 <div class="general">
-    <p>General</p>
+    <h3>General</h3>
         <p>Date and time</p>
         <p id="timeZone"></p>
         <p id="currentTime"></p>
@@ -34,7 +35,7 @@
 </div>
 
 <div class="wifi">
-    <p>WiFi</p>
+    <h3>WiFi</h3>
     <p id="localSsid"></p>
 
     <form>
@@ -45,9 +46,13 @@
     <p id="connectToWifi"></p>
 </div>
 <div class="device">
-    <p>Device</p>
+    <h3>Device</h3>
     <p id="deviceCare"></p>
 </div>
+</div>
+
+<div class="exitB">
+    <button class="exit" type="button" onclick="closeSettings()">Exit</button>
 </div>
 
 </body>

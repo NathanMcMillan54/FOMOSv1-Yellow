@@ -28,6 +28,7 @@ your user name  ALL=(ALL) NOPASSWD: ALL
 ```
 
 Delete this:
+(It should be at the top of the visudo file)
 ```shell script
 Defualts  env_reset
 ```
@@ -37,13 +38,22 @@ This also makes you device very insecure so you can change this to only work wit
 
 #
 
+Just so you know now before you replace the Linux UI, you ARE replacing the Linux UI so you can't really do anything after these next steps.
+
 To run on startup:
 ```shell script
-chmod +x /etc/init.d/runFOMOS.sh
-ln -s /etc/init.d/runFOMOS.sh /etc/rc.d/
+cd /etc/profile.d/
+sudo touch strtFOMOS.sh
+sudo nano strtFOMOS.sh
 ```
 
-Not sure if this works but it will soon if it doesn't.
+This makes a file called strtFOMOS.sh in /etc/profile.d/ which runs scripts at login.
+
+```shell script
+#!/usr/bin/env bash
+cd home/yourUserName/Desktop/FOMOSv1-Yellow/
+sh runFOMOS.sh
+```
 
 #
 # Website

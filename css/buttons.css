@@ -13,6 +13,15 @@
     background-color: #0066ff;
 }
 
+.exit {
+    color: #000000;
+    background-color: #bfbfbf;
+}
+
+.exitB{
+    text-align: center;
+}
+
 .update {
     color: #000000;
     background-color: #ffff00;
