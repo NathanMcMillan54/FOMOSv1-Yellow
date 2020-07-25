@@ -1,4 +1,5 @@
 var timeZone = getTimezoneName();
+var Time = getCurrentTime();
 
 function getTimezoneName() {
   const today = new Date();
@@ -16,4 +17,27 @@ function getTimezoneName() {
 }
 
 document.getElementById("timeZone").innerHTML = "Time zone: " + timeZone;
+
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function getCurrentTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('currentTime').innerHTML = "Current time: " + h + ":" + m + ":" + s;
+  t = setTimeout(function() {
+    getCurrentTime();
+  }, 1000);
+}
+
+getCurrentTime();
 getTimezoneName();

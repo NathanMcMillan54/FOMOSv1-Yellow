@@ -25,6 +25,7 @@ function homeScreen() {
        }
    });
    homeScreen.loadFile('htmlUi/homeScreen.html');
+   homeScreen.show();
 }
 
 function settingsWindow(){
