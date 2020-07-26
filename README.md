@@ -10,6 +10,7 @@ Since this is for Linux it should run on Linux based devices like Android device
 
 # Setup
 This only works on Linux and won't work on another OS.
+Please read this very carefully, especially where it talks about running FOMOS on startup.
 ```shell script
 sh installRequirments.sh
 sh runFOMOS.sh
@@ -17,6 +18,7 @@ sh runFOMOS.sh
 
 #
 
+All these changes will apply to other users on you computer.
 To make Wifi commands work:
 ```shell script
 sudo visudo
