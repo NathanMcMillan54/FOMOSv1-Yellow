@@ -1,5 +1,5 @@
 # FOMOSv1-Yellow
-FOMOS is a UI replacement for Linux but hopefully one day it will become it's own OS.
+FOMOS is a GUI replacement for Linux but hopefully one day it will become it's own OS.
 FOMOS stands for: Free, Open source, Mobile, Operating, System
 #
 
