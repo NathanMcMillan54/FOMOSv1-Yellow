@@ -12,7 +12,7 @@ Since this is for Linux it should run on Linux based devices like Android device
 This only works on Linux and won't work on another OS.
 Please read this very carefully, especially where it talks about running FOMOS on startup.
 ```shell script
-sh installRequirments.sh
+sh installRequirements.sh
 sh runFOMOS.sh
 ```
 
