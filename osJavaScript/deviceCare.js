@@ -1,5 +1,6 @@
 var exec = require('child_process').exec;
 
+var refreshDeviceCare = setInterval(deviceCare, 10000)
 function deviceCare() {
 var deviceCare = exec('sh osShellScripts/deviceCare.sh', (err, stdout, stderr) => {
         if (err) {
