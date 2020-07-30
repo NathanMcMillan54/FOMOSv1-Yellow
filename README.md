@@ -26,7 +26,7 @@ sudo visudo
 
 In that file put at the very bottom:
 ```shell script
-your user name  ALL = NOPASSWD: ALL
+yourUserName  ALL = NOPASSWD: ALL
 ```
 
 Delete this:
@@ -56,6 +56,9 @@ This makes a file called strtFOMOS.sh in /etc/profile.d/ which runs scripts at l
 cd home/yourUserName/Desktop/FOMOSv1-Yellow/
 sh runFOMOS.sh
 ```
+
+
+To update FOMOS go into settings in the software section. Click the update button then restart your device.
 
 #
 # Website
