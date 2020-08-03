@@ -3,8 +3,11 @@ const { app, BrowserWindow, screen} = require('electron');
 app.whenReady().then(startFomos);
 
 async function startFomos() {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
    let startfomos = new BrowserWindow({
        fullscreen: true,
+       width: 100,
+       height: 100,
        webPreferences: {
            nodeIntegration: true
        }
@@ -17,9 +20,11 @@ async function startFomos() {
 }
 
 function homeScreen() {
-   let homeScreen;
-   homeScreen = new BrowserWindow({
+   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+   let homeScreen = new BrowserWindow({
        fullscreen: true,
+       width: width * 100,
+       height: height * 100,
        webPreferences: {
            nodeIntegration: true
        }
@@ -33,8 +38,8 @@ function settingsWindow(){
    let settings = new BrowserWindow({
            parent: homeScreen,
            fullscreen: false,
-           width: width * 0.9,
-           height: height * 0.8,
+           width: width * 9,
+           height: height * 8,
            webPreferences: {
                nodeIntegration: true
            }
@@ -48,8 +53,8 @@ function google(){
    let google = new BrowserWindow({
            parent: homeScreen,
            fullscreen: false,
-           width: width * 0.9,
-           height: height * 0.8,
+           width: width * 9,
+           height: height * 8,
            webPreferences: {
                nodeIntegration: true
            }
@@ -63,8 +68,8 @@ function calculatorWindow(){
    let calculator = new BrowserWindow({
            parent: homeScreen,
            fullscreen: false,
-           width: width * 0.9,
-           height: height * 0.8,
+           width: width * 9,
+           height: height * 8,
            webPreferences: {
                nodeIntegration: true
            }
