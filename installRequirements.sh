@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Installing npm..."
+sudo apt-get install npm
+
 echo "Installing ElectronJs..."
 npm install
 

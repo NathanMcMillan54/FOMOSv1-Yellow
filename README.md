@@ -57,8 +57,9 @@ cd home/yourUserName/Desktop/FOMOSv1-Yellow/
 sh runFOMOS.sh
 ```
 
+#
 
-To update FOMOS go into settings in the software section. Click the update button then restart your device.
+To update FOMOS go into settings in the software section. Click the update button then restart your device. There might be problems if you have already made changes to FOMOS and you try to update.
 
 #
 # Website
