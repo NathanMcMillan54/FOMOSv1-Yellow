@@ -12,21 +12,12 @@ void buttonGoogle (GtkButton *button) {
     system("xdg-open http://www.google.com");
 }
 
-int showTime() {
-    time_t timer;
-    char buffer[26];
-    struct tm* tm_info;
-
-    timer = time(NULL);
-    tm_info = localtime(&timer);
-
-    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
-    puts(buffer);
-    sleep(1);
+int getTime() {
+    system("sh time.sh");
 }
 
 int main(int argc, char **argv) {
-    showTime();
+    getTime();
     char google[50] = "Google";
     char settings[50] = "Settings";
 
