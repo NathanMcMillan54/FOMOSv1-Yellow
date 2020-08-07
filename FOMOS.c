@@ -12,12 +12,7 @@ void buttonGoogle (GtkButton *button) {
     system("xdg-open http://www.google.com");
 }
 
-int getTime() {
-    system("sh time.sh");
-}
-
 int main(int argc, char **argv) {
-    getTime();
     char google[50] = "Google";
     char settings[50] = "Settings";
 
@@ -46,7 +41,16 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(buttonSettings), settings);
     g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(buttonGoogle), google);
 
-    gtk_main();
+    for (;;) {
+        time_t rawtime;
+        struct tm *timeinfo;
+
+        time(&rawtime);
+        timeinfo = localtime(&rawtime);
+        printf("%s", asctime(timeinfo));
+        sleep(1);
+        gtk_main();
+    }
 
     return 0;
 }
