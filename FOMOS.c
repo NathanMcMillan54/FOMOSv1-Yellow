@@ -39,6 +39,8 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(buttonSettings), settings);
     g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(buttonGoogle), google);
 
+
+
     gtk_main();
 
     return 0;
