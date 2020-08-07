@@ -4,11 +4,21 @@
 
 int main(int argc, char **argv) {
     GtkWidget *window;
+    GtkWidget *grid;
+    GtkWidget *text;
 
-    gtk_init (&argc,&argv);
+    gtk_init(&argc, &argv);
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    text = gtk_label_new("Settings");
+    grid = gtk_grid_new();
 
     gtk_window_fullscreen(GTK_WINDOW(window));
+    gtk_label_set_selectable (GTK_LABEL(text), TRUE);
+    gtk_grid_set_row_spacing (GTK_GRID(grid), 4);
+    gtk_grid_set_column_spacing (GTK_GRID(grid), 4);
+    gtk_container_add (GTK_CONTAINER(window), grid);
+
+    gtk_grid_attach (GTK_GRID(grid), text, 0, 2, 2, 1);
 
     gtk_widget_show_all (window);
 
