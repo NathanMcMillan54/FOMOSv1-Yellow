@@ -36,10 +36,9 @@ function homeScreen() {
 function settingsWindow(){
    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
    let settings = new BrowserWindow({
-           parent: homeScreen,
-           fullscreen: false,
-           width: width * 9,
-           height: height * 8,
+       fullscreen: true,
+           width: width * 100,
+           height: height * 100,
            webPreferences: {
                nodeIntegration: true
            }
@@ -51,10 +50,9 @@ function settingsWindow(){
 function google(){
    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
    let google = new BrowserWindow({
-           parent: homeScreen,
-           fullscreen: false,
-           width: width * 9,
-           height: height * 8,
+       fullscreen: true,
+           width: width * 100,
+           height: height * 100,
            webPreferences: {
                nodeIntegration: true
            }
@@ -66,10 +64,9 @@ function google(){
 function calculatorWindow(){
    const { width, height } = screen.getPrimaryDisplay().workAreaSize;
    let calculator = new BrowserWindow({
-           parent: homeScreen,
-           fullscreen: false,
-           width: width * 9,
-           height: height * 8,
+       fullscreen: true,
+           width: width * 100,
+           height: height * 100,
            webPreferences: {
                nodeIntegration: true
            }
