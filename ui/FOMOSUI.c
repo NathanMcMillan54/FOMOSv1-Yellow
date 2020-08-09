@@ -35,11 +35,7 @@ static gboolean on_timeout (gpointer user_data) {
 }
 
 int main(int argc, char **argv) {
-    time_t rawtime;
-    struct tm *timeinfo;
-    time(&rawtime);
-    timeinfo = localtime(&rawtime);
-    char *currentTime = asctime(timeinfo);
+    gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
 
@@ -47,25 +43,22 @@ int main(int argc, char **argv) {
     GtkWidget *window;
     GtkWidget *settingsButton;
     GtkWidget *googleButton;
-    GtkWidget *grid;
-    GtkWidget *clockText;
-
-    gtk_init (&argc,&argv);
-    GtkWidget *label = gtk_label_new ("Time");
+    GtkWidget *label = gtk_label_new("Time");
     g_timeout_add (1000, on_timeout, label);
+    GtkWidget *grid;
+
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
-    clockText = gtk_label_new(currentTime);
     settingsButton = gtk_button_new_with_label (settings);
     googleButton = gtk_button_new_with_label (google);
 
     gtk_window_fullscreen(GTK_WINDOW(window));
-    gtk_container_add (GTK_CONTAINER (window), label);
+    gtk_label_set_selectable (GTK_LABEL(label), TRUE);
     gtk_grid_set_row_spacing (GTK_GRID(grid), 4);
     gtk_grid_set_column_spacing (GTK_GRID(grid), 4);
     gtk_container_add (GTK_CONTAINER(window), grid);
 
-    gtk_grid_attach (GTK_GRID(grid), clockText, 4, 0, 4, 4);
+    gtk_grid_attach (GTK_GRID(grid), label, 4, 0, 4, 4);
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
 
