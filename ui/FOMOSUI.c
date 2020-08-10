@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 void buttonSettings (GtkButton *button) {
-    system("sh settings.sh");
+    system("./ui/settings");
 }
 
 void buttonGoogle (GtkButton *button) {
@@ -38,11 +38,13 @@ int main(int argc, char **argv) {
 
     // GUi
     GtkWidget *window;
-    GtkWidget *settingsButton;
-    GtkWidget *googleButton;
+    GtkWidget *settingsButton, *googleButton;
     GtkWidget *label = gtk_label_new("Time");
     g_timeout_add (1000, refresh, label);
     GtkWidget *grid;
+
+    GtkCssProvider *provider = gtk_css_provider_new ();
+    gtk_css_provider_load_from_path (provider, "ui/FOMOSUI.css", NULL);
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
