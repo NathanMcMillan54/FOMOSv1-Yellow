@@ -36,6 +36,9 @@ int main(int argc, char **argv) {
     char google[50] = "Google";
     char settings[50] = "Settings";
 
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
     // GUi
     GtkWidget *window;
     GtkWidget *settingsButton, *googleButton;
@@ -43,8 +46,16 @@ int main(int argc, char **argv) {
     g_timeout_add (1000, refresh, label);
     GtkWidget *grid;
 
-    GtkCssProvider *provider = gtk_css_provider_new ();
-    gtk_css_provider_load_from_path (provider, "ui/FOMOSUI.css", NULL);
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const char *css = "FOMOSUI.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider, g_file_new_for_path(css), &error);
+    g_object_unref (provider);
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
