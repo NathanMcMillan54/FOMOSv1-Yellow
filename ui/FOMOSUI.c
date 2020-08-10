@@ -13,12 +13,9 @@ void buttonGoogle (GtkButton *button) {
     system("xdg-open http://www.google.com");
 }
 
-static gboolean on_timeout (gpointer user_data) {
-    // static unsigned f_times = 0;
+static gboolean refresh (gpointer user_data) {
 
     GtkLabel *label = GTK_LABEL (user_data);
-
-    // ++f_times;
 
     time_t rawtime;
     struct tm *timeinfo;
@@ -27,11 +24,11 @@ static gboolean on_timeout (gpointer user_data) {
 
     char *currentTime = asctime(timeinfo);
 
-    gchar *text = g_strdup_printf (currentTime);
+    char *text = g_strdup_printf (currentTime);
     gtk_label_set_label (label, text);
     g_free (text);
 
-    return G_SOURCE_CONTINUE; /* or G_SOURCE_REMOVE when you want to stop */
+    return G_SOURCE_CONTINUE;
 }
 
 int main(int argc, char **argv) {
@@ -44,7 +41,7 @@ int main(int argc, char **argv) {
     GtkWidget *settingsButton;
     GtkWidget *googleButton;
     GtkWidget *label = gtk_label_new("Time");
-    g_timeout_add (1000, on_timeout, label);
+    g_timeout_add (1000, refresh, label);
     GtkWidget *grid;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
