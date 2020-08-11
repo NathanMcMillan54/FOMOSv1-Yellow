@@ -1,3 +1,8 @@
-* {
-    background-color: #f0f0f0;
+GtkWindow {
+    background-color: #ffffff;
+}
+
+#css_settingsButton {
+    color: #000000;
+    background-color: #bfbfbf;
 }

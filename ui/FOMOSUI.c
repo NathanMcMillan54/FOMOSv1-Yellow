@@ -31,35 +31,25 @@ static gboolean refresh (gpointer user_data) {
     return G_SOURCE_CONTINUE;
 }
 
+void css(void);
+
 int main(int argc, char **argv) {
+    css();
     gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
 
-    GtkCssProvider *provider;
-    GdkDisplay *display;
-    GdkScreen *screen;
     // GUi
     GtkWidget *window;
-    GtkWidget *settingsButton, *googleButton;
+    GtkWidget *settingsButton, *googleButton, *button1;
     GtkWidget *label = gtk_label_new("Time");
     g_timeout_add (1000, refresh, label);
     GtkWidget *grid;
 
-    provider = gtk_css_provider_new ();
-    display = gdk_display_get_default ();
-    screen = gdk_display_get_default_screen (display);
-    gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    const char *css = "FOMOSUI.css";
-    GError *error = 0;
-
-    gtk_css_provider_load_from_file(provider, g_file_new_for_path(css), &error);
-    g_object_unref (provider);
-
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
+    gtk_widget_set_name(settingsButton, "css_settingsButton");
     googleButton = gtk_button_new_with_label (google);
 
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -69,6 +59,7 @@ int main(int argc, char **argv) {
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), label, 4, 0, 4, 4);
+    gtk_grid_attach(GTK_GRID(grid), button1, 0, 0, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
 
@@ -79,4 +70,21 @@ int main(int argc, char **argv) {
 
     gtk_main();
     return 0;
+}
+
+void css(void) {
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
+
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const gchar *cssFile = "FOMOSUI.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider, g_file_new_for_path(cssFile), &error);
+    g_object_unref (provider);
 }
