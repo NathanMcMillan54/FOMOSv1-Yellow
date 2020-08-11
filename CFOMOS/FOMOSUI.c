@@ -5,12 +5,16 @@
 #include <time.h>
 #include <unistd.h>
 
-void buttonSettings (GtkButton *button) {
-    system("./ui/settings");
+void openSettings (GtkButton *button) {
+    system("./settings");
 }
 
-void buttonGoogle (GtkButton *button) {
+void openGoogle (GtkButton *button) {
     system("xdg-open http://www.google.com");
+}
+
+void shutdownFOMOS (GtkButton *button) {
+    system("./shutdown");
 }
 
 static gboolean refresh (gpointer user_data) {
@@ -38,10 +42,13 @@ int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
+    // char shutdown[50] = "Shutdown";
+    // char restart[50] = "Restart";
 
     // GUi
     GtkWidget *window;
-    GtkWidget *settingsButton, *googleButton, *button1;
+    GtkWidget *settingsButton, *googleButton;
+    GtkWidget *shutdownBtn, *restartBtn;
     GtkWidget *label = gtk_label_new("Time");
     g_timeout_add (1000, refresh, label);
     GtkWidget *grid;
@@ -50,6 +57,8 @@ int main(int argc, char **argv) {
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
     gtk_widget_set_name(settingsButton, "css_settingsButton");
+    shutdownBtn = gtk_button_new_with_label ("Shutdown");
+    gtk_widget_set_name(shutdownBtn, "css_shutdownButton");
     googleButton = gtk_button_new_with_label (google);
 
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -59,14 +68,16 @@ int main(int argc, char **argv) {
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), label, 4, 0, 4, 4);
-    gtk_grid_attach(GTK_GRID(grid), button1, 0, 0, 1, 1);
+    gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 0, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(buttonSettings), settings);
-    g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(buttonGoogle), google);
+    g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
+    g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(openSettings), settings);
+    g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(openGoogle), google);
+
 
     gtk_main();
     return 0;

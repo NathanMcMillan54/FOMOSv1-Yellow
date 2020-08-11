@@ -3,4 +3,4 @@ project(FOMOSv1-Yellow C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(FOMOSv1-Yellow ui/settings.c ui/FOMOSUI.c)
+add_executable(FOMOSv1-Yellow FOMOS.c settings.c FOMOSUI.c)
