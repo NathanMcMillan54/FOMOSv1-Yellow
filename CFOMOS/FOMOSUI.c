@@ -46,8 +46,6 @@ int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
-    // char shutdown[50] = "Shutdown";
-    // char restart[50] = "Restart";
 
     // GUi
     GtkWidget *window;
@@ -74,6 +72,7 @@ int main(int argc, char **argv) {
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), label, 4, 0, 4, 4);
+    gtk_grid_attach(GTK_GRID(grid), restartBtn, 1, 0, 1, 1);
     gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 0, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
