@@ -6,3 +6,13 @@ GtkWindow {
     color: #000000;
     background-color: #bfbfbf;
 }
+
+#css_shutdownButton {
+    color: #ffffff;
+    background-color: #f44336;
+}
+
+#css_restartButton {
+    color: #ffffff;
+    background-color: #ff751a;
+}

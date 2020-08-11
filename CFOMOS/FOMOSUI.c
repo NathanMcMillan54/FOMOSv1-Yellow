@@ -17,6 +17,10 @@ void shutdownFOMOS (GtkButton *button) {
     system("./shutdown");
 }
 
+void restartFOMOS (GtkButton *button) {
+    system("./restart");
+}
+
 static gboolean refresh (gpointer user_data) {
 
     GtkLabel *label = GTK_LABEL (user_data);
@@ -59,6 +63,8 @@ int main(int argc, char **argv) {
     gtk_widget_set_name(settingsButton, "css_settingsButton");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     gtk_widget_set_name(shutdownBtn, "css_shutdownButton");
+    restartBtn = gtk_button_new_with_label ("Restart");
+    gtk_widget_set_name(shutdownBtn, "css_restartButton");
     googleButton = gtk_button_new_with_label (google);
 
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -75,6 +81,7 @@ int main(int argc, char **argv) {
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
     g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
+    g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
     g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(openSettings), settings);
     g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(openGoogle), google);
 
