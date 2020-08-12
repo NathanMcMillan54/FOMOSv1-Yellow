@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     exitButton = gtk_button_new_with_label ("Exit");
 
     gtk_window_fullscreen(GTK_WINDOW(window));
-    gtk_label_set_selectable (GTK_LABEL(text), TRUE);
+    gtk_container_add (GTK_LABEL(text), TRUE);
     gtk_grid_set_row_spacing (GTK_GRID(grid), 4);
     gtk_grid_set_column_spacing (GTK_GRID(grid), 4);
     gtk_container_add (GTK_CONTAINER(window), grid);
