@@ -1,9 +1,13 @@
 #include <gtk/gtk.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 void buttonExit() {
     exit(0);
+}
+
+void connectToWifi() {
+    system("sudo sh osShellscripts/connectToWifi.sh");
 }
 
 int main(int argc, char **argv) {
