@@ -11,6 +11,14 @@ void buttonUpdate() {
     system("sh osShellscripts/updateCFOMOS.sh");
 }
 
+void shutdownFOMOS (GtkButton *button) {
+    system("./shutdown");
+}
+
+void restartFOMOS (GtkButton *button) {
+    system("./restart");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -40,7 +48,7 @@ int main(int argc, char **argv) {
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
@@ -49,6 +57,8 @@ int main(int argc, char **argv) {
     exitButton = gtk_button_new_with_label ("Exit");
     updateButton = gtk_button_new_with_label ("Update");
     generalSettings = gtk_label_new("General Settings");
+    shutdownBtn = gtk_button_new_with_label ("Shutdown");
+    restartBtn = gtk_button_new_with_label ("Restart");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
@@ -65,12 +75,16 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), version, 0, 3, 3, 1);
     gtk_grid_attach (GTK_GRID(grid), updateButton, 0, 4, 4, 1);
     gtk_grid_attach (GTK_GRID(grid), generalSettings, 0, 5, 5 ,1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 6, 6, 1);
+    gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 7, 7, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
     g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(buttonExit), buttonExit);
     g_signal_connect(G_OBJECT(updateButton), "clicked", G_CALLBACK(buttonUpdate), buttonUpdate);
+    g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
+    g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
 
 
     gtk_main();
