@@ -21,7 +21,7 @@ void restartFOMOS (GtkButton *button) {
     system("./restart");
 }
 
-static gboolean refresh (gpointer user_data) {
+static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *label = GTK_LABEL (user_data);
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
     GtkWidget *settingsButton, *googleButton;
     GtkWidget *shutdownBtn, *restartBtn;
     GtkWidget *label = gtk_label_new("Time");
-    g_timeout_add (1000, refresh, label);
+    g_timeout_add (1000, refreshTime, label);
     GtkWidget *grid;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
