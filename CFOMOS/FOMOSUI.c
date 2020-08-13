@@ -55,6 +55,7 @@ int main(int argc, char **argv) {
     g_timeout_add (1000, refreshTime, label);
     GtkWidget *grid;
 
+    gtk_window_set_title (GTK_WINDOW (window), "FOMOSv1-Yellow");
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
