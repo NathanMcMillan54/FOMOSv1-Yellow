@@ -36,7 +36,7 @@ int main(int argc, char **argv) {
     GtkWidget *window;
     GtkWidget *grid;
     // text
-    GtkWidget *settings, *softwareSettings, *version;
+    GtkWidget *settings, *softwareSettings, *version, *generalSettings;
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
@@ -48,14 +48,15 @@ int main(int argc, char **argv) {
     version = gtk_label_new("You are on FOMSOv1-Yellow: 1.1");
     exitButton = gtk_button_new_with_label ("Exit");
     updateButton = gtk_button_new_with_label ("Update");
+    generalSettings = gtk_label_new("General Settings");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_container_add (GTK_LABEL(settings), TRUE);
     gtk_container_add (GTK_LABEL(timeText), TRUE);
-    gtk_grid_set_row_spacing (GTK_GRID(grid), 5);
-    gtk_grid_set_column_spacing (GTK_GRID(grid), 5);
+    gtk_grid_set_row_spacing (GTK_GRID(grid), 6);
+    gtk_grid_set_column_spacing (GTK_GRID(grid), 6);
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), settings, 0, 0, 1, 1);
@@ -63,7 +64,8 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), softwareSettings, 0, 2, 2, 1);
     gtk_grid_attach (GTK_GRID(grid), version, 0, 3, 3, 1);
     gtk_grid_attach (GTK_GRID(grid), updateButton, 0, 4, 4, 1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 5, 5, 5);
+    gtk_grid_attach (GTK_GRID(grid), generalSettings, 0, 5, 5 ,1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 6, 6, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
