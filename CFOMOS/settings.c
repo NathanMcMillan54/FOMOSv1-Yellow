@@ -1,10 +1,11 @@
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <time.h>
-#include <unistd.h>
 
+void buttonExit() {
+    exit(0);
+}
 
 static gboolean refreshTime (gpointer user_data) {
 
@@ -37,6 +38,7 @@ int main(int argc, char **argv) {
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
+    exitButton = gtk_button_new_with_label ("Exit");
     grid = gtk_grid_new ();
 
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -48,9 +50,11 @@ int main(int argc, char **argv) {
 
     gtk_grid_attach (GTK_GRID(grid), settings, 0, 0, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), timeText, 4, 0, 4, 4);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 2, 2, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+    g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(buttonExit), buttonExit);
 
 
     gtk_main();
