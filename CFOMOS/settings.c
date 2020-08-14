@@ -8,7 +8,7 @@ void buttonExit() {
 }
 
 void buttonUpdate() {
-    system("sh osShellscripts/updateCFOMOS.sh");
+    system("sh osShellScripts/updateCFOMOS.sh");
 }
 
 void shutdownFOMOS (GtkButton *button) {
@@ -85,7 +85,6 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(updateButton), "clicked", G_CALLBACK(buttonUpdate), buttonUpdate);
     g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
     g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
-
 
     gtk_main();
     return 0;
