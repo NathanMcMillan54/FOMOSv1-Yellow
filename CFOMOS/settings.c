@@ -23,6 +23,11 @@ void openKeyboard (GtkButton *button) {
     system("sh shellScripts/keyboard.sh");
 }
 
+// this makes a elctronJs ui open that has all wifi settings
+void openWifiSettings (GtkButton *button) {
+    system("npm start");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -48,11 +53,11 @@ int main(int argc, char **argv) {
     GtkWidget *window;
     GtkWidget *grid;
     // text
-    GtkWidget *settings, *softwareSettings, *version, *generalSettings;
+    GtkWidget *settings, *softwareSettings, *version, *generalSettings, *wifiSettings;
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
@@ -64,14 +69,16 @@ int main(int argc, char **argv) {
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     restartBtn = gtk_button_new_with_label ("Restart");
     keyboardBtn = gtk_button_new_with_label ("Keyboard");
+    wifiSettings = gtk_label_new ("Wifi Settings");
+    wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_container_add (GTK_LABEL(settings), TRUE);
     gtk_container_add (GTK_LABEL(timeText), TRUE);
-    gtk_grid_set_row_spacing (GTK_GRID(grid), 7);
-    gtk_grid_set_column_spacing (GTK_GRID(grid), 7);
+    gtk_grid_set_row_spacing (GTK_GRID(grid), 12);
+    gtk_grid_set_column_spacing (GTK_GRID(grid), 12);
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), settings, 0, 0, 1, 1);
@@ -82,8 +89,10 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), generalSettings, 0, 5, 5 ,1);
     gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 7, 6, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 7, 7, 1);
+    gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 8, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 9, 8, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
@@ -92,6 +101,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
     g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
     g_signal_connect(G_OBJECT(keyboardBtn), "clicked", G_CALLBACK(openKeyboard), "Keyboard");
+    g_signal_connect(G_OBJECT(wifiSettingsBtn), "clicked", G_CALLBACK(openWifiSettings), "Open Wifi Settings");
 
     gtk_main();
     return 0;
