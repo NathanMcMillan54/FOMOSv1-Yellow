@@ -19,6 +19,10 @@ void restartFOMOS (GtkButton *button) {
     system("./restart");
 }
 
+void openKeyboard (GtkButton *button) {
+    system("sh shellScripts/keyboard.sh");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -48,7 +52,7 @@ int main(int argc, char **argv) {
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
@@ -59,14 +63,15 @@ int main(int argc, char **argv) {
     generalSettings = gtk_label_new("General Settings");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     restartBtn = gtk_button_new_with_label ("Restart");
+    keyboardBtn = gtk_button_new_with_label ("Keyboard");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_container_add (GTK_LABEL(settings), TRUE);
     gtk_container_add (GTK_LABEL(timeText), TRUE);
-    gtk_grid_set_row_spacing (GTK_GRID(grid), 6);
-    gtk_grid_set_column_spacing (GTK_GRID(grid), 6);
+    gtk_grid_set_row_spacing (GTK_GRID(grid), 7);
+    gtk_grid_set_column_spacing (GTK_GRID(grid), 7);
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), settings, 0, 0, 1, 1);
@@ -77,6 +82,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), generalSettings, 0, 5, 5 ,1);
     gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 7, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 7, 7, 1);
 
     gtk_widget_show_all (window);
@@ -85,6 +91,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(updateButton), "clicked", G_CALLBACK(buttonUpdate), buttonUpdate);
     g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
     g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
+    g_signal_connect(G_OBJECT(keyboardBtn), "clicked", G_CALLBACK(openKeyboard), "Keyboard");
 
     gtk_main();
     return 0;
