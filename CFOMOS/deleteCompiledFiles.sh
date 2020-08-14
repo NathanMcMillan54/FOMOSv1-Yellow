@@ -10,4 +10,5 @@ rm -rf FOMOSUI
 rm -rf settings
 rm -rf shutdown
 rm -rf restart
+rm -rf calculator
 echo "Finished deleting compiled files"

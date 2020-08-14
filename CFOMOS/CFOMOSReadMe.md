@@ -22,3 +22,14 @@ sh startCFOMOS.sh
 This will run a C file that compiles all FOMOS files and then runs FOMOSUI.c.
 
 For now these are the only instructions for C FOMOS.
+
+#
+# For developers
+
+You can do whatever you want with FOMOSv1-Yellow but if you are adding stuff to it's Github repository run this after you're done:
+
+```shell script
+sh deleteCompiledFiles.sh
+```
+
+This will delete any compiled file so you don't have to delete them manually, also compiled files shouldn't be in the repository.
