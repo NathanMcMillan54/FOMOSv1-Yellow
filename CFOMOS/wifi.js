@@ -21,7 +21,7 @@ function connectToWifi() {
     var password = document.getElementById("password");
     console.log("Password was entered");
 
-    var connectToWifi = exec('sudo sh osShellScripts/connectWifi.sh ' + ssid.value + ' ' + password.value, (err, stdout, stderr) => {
+    var connectToWifi = exec('sudo sh osShellScripts/connectToWifi.sh ' + ssid.value + ' ' + password.value, (err, stdout, stderr) => {
         if (err) {
             console.log(`exec error: ${err}`);
             return;
