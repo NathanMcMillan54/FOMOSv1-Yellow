@@ -49,6 +49,8 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
+    deviceCare();
+
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
