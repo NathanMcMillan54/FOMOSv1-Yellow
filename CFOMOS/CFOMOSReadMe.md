@@ -33,3 +33,6 @@ sh deleteCompiledFiles.sh
 ```
 
 This will delete any compiled file so you don't have to delete them manually, also compiled files shouldn't be in the repository.
+
+
+In credits.txt it will show files that were copied from other people and where to find the original code.

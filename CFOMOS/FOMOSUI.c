@@ -60,11 +60,8 @@ int main(int argc, char **argv) {
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
-    gtk_widget_set_name(settingsButton, "css_settingsButton");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
-    gtk_widget_set_name(shutdownBtn, "css_shutdownButton");
     restartBtn = gtk_button_new_with_label ("Restart");
-    gtk_widget_set_name(shutdownBtn, "css_restartButton");
     googleButton = gtk_button_new_with_label (google);
     calculatorButton = gtk_button_new_with_label ("Calculator");
 
