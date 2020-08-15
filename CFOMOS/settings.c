@@ -28,6 +28,12 @@ void openWifiSettings (GtkButton *button) {
     system("npm start");
 }
 
+void printDeviceCare() {
+    system("sh osShellScripts/diskUsage.sh");
+    system("sh osShellScripts/ramUsage.sh");
+    system("sh osShellScripts/cpuUsage.sh");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -49,7 +55,7 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
-    deviceCare();
+    printDeviceCare();
 
     // GUi
     GtkWidget *window;
