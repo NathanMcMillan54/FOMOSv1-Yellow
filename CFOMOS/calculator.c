@@ -1,7 +1,7 @@
 #include <math.h>
 #include <gtk/gtk.h>
 #include <string.h>
-#include "buttons.h"
+#include "cHeaderFiles/calculatorButtons.h"
 #include <iso646.h>
 #include <ctype.h>
 #include <stdlib.h>
