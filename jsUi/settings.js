@@ -41,3 +41,9 @@ function getCurrentTime() {
 
 getCurrentTime();
 getTimezoneName();
+
+function updateAlert() {
+  window.alert("Soon FOMOS will be having a big update on version 1.3, if you made changes to FOMOS on this device they might be deleted, remember to update your device regularly.");
+}
+
+updateAlert();
