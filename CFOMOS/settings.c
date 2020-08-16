@@ -23,7 +23,7 @@ void openKeyboard (GtkButton *button) {
     system("sh shellScripts/keyboard.sh");
 }
 
-// this makes a elctronJs ui open that has all wifi settings
+// this makes a elctronJs gui open that has all wifi settings
 void openWifiSettings (GtkButton *button) {
     system("npm start");
 }

@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Wifi</title>
-    <script src="wifi.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="wifi">
-    <h3>WiFi</h3>
+    <h1>WiFi</h1>
     <p id="localSsid"></p>
     <form>
         <input type="text" id="ssid" placeholder="Network Name">
-        <input type="text" id="password" placeholder="Password">
+        <input type="password" id="password" placeholder="Password">
         <button type="button" onclick="connectToWifi()">Connect</button>
     </form>
     <p id="connectToWifi"></p>
