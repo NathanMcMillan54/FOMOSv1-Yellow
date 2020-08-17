@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 void buttonExit() {
     exit(0);
@@ -34,6 +35,19 @@ void printDeviceCare() {
     system("sh osShellScripts/cpuUsage.sh");
 }
 
+static gboolean refreshDiskUsage (gpointer user_data) {
+
+    GtkLabel *diskUsageText = GTK_LABEL (user_data);
+
+    char currentDiskUsage = system("sh osShellScripts/diskUsage.sh");
+
+    char *text = g_strdup_printf (currentDiskUsage);
+    gtk_label_set_label (diskUsageText, text);
+    g_free (text);
+
+    return G_SOURCE_CONTINUE;
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -60,8 +74,12 @@ int main(int argc, char **argv) {
     GtkWidget *grid;
     // text
     GtkWidget *settings, *softwareSettings, *version, *generalSettings, *wifiSettings;
+    // time
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
+    // disk usage
+    GtkWidget *diskUsageText = gtk_label_new("Disk usage");
+    g_timeout_add (1000, refreshDiskUsage, diskUsageText);
     // buttons
     GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn;
 
@@ -98,7 +116,8 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 8, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 9, 8, 1);
+    gtk_grid_attach (GTK_GRID(grid), diskUsageText, 0, 9, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 10, 8, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
