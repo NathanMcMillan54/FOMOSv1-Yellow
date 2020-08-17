@@ -55,8 +55,6 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
-    printDeviceCare();
-
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
@@ -95,7 +93,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), version, 0, 3, 3, 1);
     gtk_grid_attach (GTK_GRID(grid), updateButton, 0, 4, 4, 1);
     gtk_grid_attach (GTK_GRID(grid), generalSettings, 0, 5, 5 ,1);
-    gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);

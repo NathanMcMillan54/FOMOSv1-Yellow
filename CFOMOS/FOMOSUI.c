@@ -25,6 +25,10 @@ void restartFOMOS (GtkButton *button) {
     system("./restart");
 }
 
+void keyboard (GtkButton *button) {
+    system("sh shellScripts/keyboard.sh");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -51,7 +55,7 @@ int main(int argc, char **argv) {
 
     // GUi
     GtkWidget *window;
-    GtkWidget *settingsButton, *googleButton, *calculatorButton;
+    GtkWidget *settingsButton, *googleButton, *calculatorButton, *keyboardButton;
     GtkWidget *shutdownBtn, *restartBtn;
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
@@ -64,6 +68,7 @@ int main(int argc, char **argv) {
     restartBtn = gtk_button_new_with_label ("Restart");
     googleButton = gtk_button_new_with_label (google);
     calculatorButton = gtk_button_new_with_label ("Calculator");
+    keyboardButton = gtk_button_new_with_label ("Keyboard");
 
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_label_set_selectable (GTK_LABEL(timeText), TRUE);
@@ -72,8 +77,9 @@ int main(int argc, char **argv) {
     gtk_container_add (GTK_CONTAINER(window), grid);
 
     gtk_grid_attach (GTK_GRID(grid), timeText, 4, 0, 4, 1);
-    gtk_grid_attach(GTK_GRID(grid), restartBtn, 1, 0, 1, 1);
-    gtk_grid_attach(GTK_GRID(grid), shutdownBtn, 0, 0, 1, 1);
+    gtk_grid_attach (GTK_GRID(grid), restartBtn, 1, 0, 1, 1);
+    gtk_grid_attach (GTK_GRID(grid), shutdownBtn, 0, 0, 1, 1);
+    gtk_grid_attach (GTK_GRID(grid), keyboardButton, 2, 0, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), calculatorButton, 2, 1, 1, 1);
@@ -85,6 +91,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(settingsButton), "clicked", G_CALLBACK(openSettings), settings);
     g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(openGoogle), google);
     g_signal_connect(G_OBJECT(calculatorButton), "clicked", G_CALLBACK(openCalculator), "Calculator");
+    g_signal_connect(G_OBJECT(keyboardButton), "clicked", G_CALLBACK(keyboard), "Keyboard");
 
 
     gtk_main();
