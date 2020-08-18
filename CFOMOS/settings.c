@@ -20,7 +20,7 @@ void restartFOMOS (GtkButton *button) {
     system("./restart");
 }
 
-void openKeyboard (GtkButton *button) {
+int openKeyboard (GtkButton *button) {
     system("sh shellScripts/keyboard.sh");
 }
 
@@ -33,19 +33,6 @@ void printDeviceCare() {
     system("sh osShellScripts/diskUsage.sh");
     system("sh osShellScripts/ramUsage.sh");
     system("sh osShellScripts/cpuUsage.sh");
-}
-
-static gboolean refreshDiskUsage (gpointer user_data) {
-
-    GtkLabel *diskUsageText = GTK_LABEL (user_data);
-
-    char currentDiskUsage = system("sh osShellScripts/diskUsage.sh");
-
-    char *text = g_strdup_printf (currentDiskUsage);
-    gtk_label_set_label (diskUsageText, text);
-    g_free (text);
-
-    return G_SOURCE_CONTINUE;
 }
 
 static gboolean refreshTime (gpointer user_data) {
@@ -69,17 +56,20 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
+    printDeviceCare();
+
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
     // text
-    GtkWidget *settings, *softwareSettings, *version, *generalSettings, *wifiSettings;
+    GtkWidget *settings, *softwareSettings, *version, *generalSettings, *wifiSettings, *deviceCareSettings;
+
+    // device care settings text
+    GtkWidget *diskUsage, *ramUsage, *cpuUsage;
+
     // time
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
-    // disk usage
-    GtkWidget *diskUsageText = gtk_label_new("Disk usage");
-    g_timeout_add (1000, refreshDiskUsage, diskUsageText);
     // buttons
     GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn;
 
@@ -95,6 +85,10 @@ int main(int argc, char **argv) {
     keyboardBtn = gtk_button_new_with_label ("Keyboard");
     wifiSettings = gtk_label_new ("Wifi Settings");
     wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
+    deviceCareSettings = gtk_label_new ("Device Care");
+    diskUsage = gtk_label_new ("Disk Usage");
+    ramUsage = gtk_label_new ("Ram Usage");
+    cpuUsage = gtk_label_new ("Cpu Usage");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
@@ -116,8 +110,11 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 8, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), diskUsageText, 0, 9, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 10, 8, 1);
+    gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 9, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), diskUsage, 0, 10, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), ramUsage, 6, 10, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), cpuUsage, 12, 10, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 11, 8, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
