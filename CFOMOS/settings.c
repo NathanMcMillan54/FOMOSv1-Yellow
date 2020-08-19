@@ -54,22 +54,17 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
-    openDeviceCare();
-
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
     // text
     GtkWidget *settings, *softwareSettings, *version, *generalSettings, *wifiSettings, *deviceCareSettings;
 
-    // device care settings text
-    GtkWidget *diskUsage, *ramUsage, *cpuUsage;
-
     // time
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn, *deviceCareBtn;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
@@ -84,6 +79,7 @@ int main(int argc, char **argv) {
     wifiSettings = gtk_label_new ("Wifi Settings");
     wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
     deviceCareSettings = gtk_label_new ("Device Care");
+    deviceCareBtn = gtk_button_new_with_label("Open Device Care Settings");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
@@ -106,9 +102,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 8, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 9, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), diskUsage, 0, 10, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), ramUsage, 6, 10, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), cpuUsage, 12, 10, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), deviceCareBtn, 0, 10, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 11, 8, 1);
 
     gtk_widget_show_all (window);
@@ -119,6 +113,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
     g_signal_connect(G_OBJECT(keyboardBtn), "clicked", G_CALLBACK(openKeyboard), "Keyboard");
     g_signal_connect(G_OBJECT(wifiSettingsBtn), "clicked", G_CALLBACK(openWifiSettings), "Open Wifi Settings");
+    g_signal_connect(G_OBJECT(deviceCareBtn), "clicked", G_CALLBACK(openDeviceCare), "Open Device Care Settings");
 
     gtk_main();
     return 0;
