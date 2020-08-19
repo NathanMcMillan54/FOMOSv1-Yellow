@@ -7,11 +7,17 @@ echo "Installing requirements..."
 sh installCFOMOSRequirements.sh
 
 echo "Moving files..."
-# this will be moving any files that need to be moved
+
+read -p "Enter your User Name: " usrName
+
+
+cd ~//
+cd ../../
+mv home/$usrName/Desktop/FOMOSv1-Yellow/startCFOMOS.sh
+
 
 echo "Setup is finished."
 echo "Restart is needed to apply changes."
-echo "Is it ok to restart now?"
 
 read -p "Is it ok to restart now? (y/n) " input
 if [ "$input" = "y" ]; then
