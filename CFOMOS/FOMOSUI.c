@@ -47,11 +47,14 @@ static gboolean refreshTime (gpointer user_data) {
     return G_SOURCE_CONTINUE;
 }
 
+void css(void);
 
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
+
+    css();
 
     // GUi
     GtkWidget *window;
@@ -61,6 +64,7 @@ int main(int argc, char **argv) {
     g_timeout_add (1000, refreshTime, timeText);
     GtkWidget *grid;
 
+    gtk_widget_set_name(grid, "fomosuiGrid");
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
@@ -96,4 +100,21 @@ int main(int argc, char **argv) {
 
     gtk_main();
     return 0;
+}
+
+void css(void) {
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
+
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const gchar *cssFile = "css/FOMOSUI.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider, g_file_new_for_path(cssFile), &error);
+    g_object_unref (provider);
 }

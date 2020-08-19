@@ -232,8 +232,9 @@ static void activate(GtkApplication *app, gpointer user_data) {
     gtk_widget_set_margin_top(textview, 5);
     gtk_container_add(GTK_CONTAINER(scrolled), textview);
 
-    GtkWidget *exitButton = gtk_button_new_with_label ("Exit");
+    GtkWidget *exitButton = gtk_button_new_with_label ("o");
     g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(buttonExit), buttonExit);
+    gtk_widget_set_size_request(exitButton, 100, 100);
     gtk_grid_attach (GTK_GRID (grid), exitButton, 2, 5, 1, 2);
 
     place_and_bind_button("AC", button_exec, numbers+BUTTON_AC, grid, 2, 1, 1, 1);

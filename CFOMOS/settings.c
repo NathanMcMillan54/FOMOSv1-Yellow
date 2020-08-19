@@ -29,6 +29,10 @@ void openWifiSettings (GtkButton *button) {
     system("npm start");
 }
 
+void openAbout (GtkButton *button) {
+    system("sh shellScripts/openAboutFOMOS.sh");
+}
+
 int openDeviceCare () {
     system("sh openDeviceCare.sh");
 }
@@ -64,13 +68,14 @@ int main(int argc, char **argv) {
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn, *deviceCareBtn;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn, *deviceCareBtn, *aboutBtn;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
     softwareSettings = gtk_label_new("Software Settings");
-    version = gtk_label_new("You are on FOMSOv1-Yellow: 1.1");
-    exitButton = gtk_button_new_with_label ("Exit");
+    version = gtk_label_new("You using FOMSOv1-Yellow: 1.1");
+    exitButton = gtk_button_new_with_label ("o");
+    gtk_widget_set_size_request(exitButton, 100, 100);
     updateButton = gtk_button_new_with_label ("Update");
     generalSettings = gtk_label_new("General Settings");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
@@ -80,6 +85,7 @@ int main(int argc, char **argv) {
     wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
     deviceCareSettings = gtk_label_new ("Device Care");
     deviceCareBtn = gtk_button_new_with_label("Open Device Care Settings");
+    aboutBtn = gtk_button_new_with_label("About");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
@@ -99,11 +105,12 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), shutdownBtn, 0, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 7, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 8, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 9, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), deviceCareBtn, 0, 10, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 11, 8, 1);
+    gtk_grid_attach (GTK_GRID(grid), aboutBtn, 0, 7, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 8, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 9, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 10, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), deviceCareBtn, 0, 11, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), exitButton, 0, 12, 8, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
@@ -114,6 +121,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(keyboardBtn), "clicked", G_CALLBACK(openKeyboard), "Keyboard");
     g_signal_connect(G_OBJECT(wifiSettingsBtn), "clicked", G_CALLBACK(openWifiSettings), "Open Wifi Settings");
     g_signal_connect(G_OBJECT(deviceCareBtn), "clicked", G_CALLBACK(openDeviceCare), "Open Device Care Settings");
+    g_signal_connect(G_OBJECT(aboutBtn), "clicked", G_CALLBACK(openAbout), "About");
 
     gtk_main();
     return 0;
