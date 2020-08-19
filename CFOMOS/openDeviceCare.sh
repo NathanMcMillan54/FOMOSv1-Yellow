@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sh osShellScripts/runDeviceCareFiles.sh
+sh osShellScripts/deviceCare.sh
+
+xterm -hold -e "sh osShellScripts/deviceCare.sh"
