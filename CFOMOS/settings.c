@@ -29,10 +29,8 @@ void openWifiSettings (GtkButton *button) {
     system("npm start");
 }
 
-void printDeviceCare() {
-    system("sh osShellScripts/diskUsage.sh");
-    system("sh osShellScripts/ramUsage.sh");
-    system("sh osShellScripts/cpuUsage.sh");
+int openDeviceCare () {
+    system("sh openDeviceCare.sh");
 }
 
 static gboolean refreshTime (gpointer user_data) {
@@ -56,7 +54,7 @@ static gboolean refreshTime (gpointer user_data) {
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
-    printDeviceCare();
+    openDeviceCare();
 
     // GUi
     GtkWidget *window;
@@ -86,9 +84,6 @@ int main(int argc, char **argv) {
     wifiSettings = gtk_label_new ("Wifi Settings");
     wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
     deviceCareSettings = gtk_label_new ("Device Care");
-    diskUsage = gtk_label_new ("Disk Usage");
-    ramUsage = gtk_label_new ("Ram Usage");
-    cpuUsage = gtk_label_new ("Cpu Usage");
     grid = gtk_grid_new ();
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
