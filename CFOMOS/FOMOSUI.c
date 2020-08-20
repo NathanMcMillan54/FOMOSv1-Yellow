@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
-
+    gtk_widget_set_name(shutdownBtn, "shutdownBtn");
     restartBtn = gtk_button_new_with_label ("Restart");
     googleButton = gtk_button_new_with_label (google);
     calculatorButton = gtk_button_new_with_label ("Calculator");
