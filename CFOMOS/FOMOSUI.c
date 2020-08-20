@@ -69,6 +69,7 @@ int main(int argc, char **argv) {
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
+
     restartBtn = gtk_button_new_with_label ("Restart");
     googleButton = gtk_button_new_with_label (google);
     calculatorButton = gtk_button_new_with_label ("Calculator");
@@ -97,12 +98,11 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(calculatorButton), "clicked", G_CALLBACK(openCalculator), "Calculator");
     g_signal_connect(G_OBJECT(keyboardButton), "clicked", G_CALLBACK(keyboard), "Keyboard");
 
-
     gtk_main();
     return 0;
 }
 
-void css(void) {
+void css(void){
     GtkCssProvider *provider;
     GdkDisplay *display;
     GdkScreen *screen;
@@ -110,11 +110,14 @@ void css(void) {
     provider = gtk_css_provider_new ();
     display = gdk_display_get_default ();
     screen = gdk_display_get_default_screen (display);
-    gtk_style_context_add_provider_for_screen (screen, GTK_STYLE_PROVIDER (provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+    gtk_style_context_add_provider_for_screen (screen,
+                                               GTK_STYLE_PROVIDER(provider),
+                                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
     const gchar *cssFile = "css/FOMOSUI.css";
     GError *error = 0;
 
-    gtk_css_provider_load_from_file(provider, g_file_new_for_path(cssFile), &error);
+    gtk_css_provider_load_from_file(provider,
+                                    g_file_new_for_path(cssFile), &error);
     g_object_unref (provider);
 }
