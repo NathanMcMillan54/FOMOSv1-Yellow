@@ -21,7 +21,12 @@ sh startCFOMOS.sh
 
 This will run a C file that compiles all FOMOS files and then runs FOMOSUI.c.
 
-For now these are the only instructions for C FOMOS.
+To setup FOMOS run
+```shell script
+sh setupFOMOS.sh
+```
+
+That file will move ```startCFOMOS.sh``` to a place where it can make FOMOS run on startup.
 
 #
 # For developers

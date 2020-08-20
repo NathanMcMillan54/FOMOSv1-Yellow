@@ -2,6 +2,7 @@
 | FOMOSv1-Yellow v1.2 |
 -----------------------
 
+
 What is FOMOS?
 
 FOMOSv1-Yellow is a GUI replacement for Linux that is open source so you can edit it to do whatever you want.
@@ -10,6 +11,7 @@ FOMOSv1-Yellow is made with C GTK which is a C library used for making GUI's
 
 FOMOS is made to run on mobile devices so if you want to run it on your phone/tablet go to web: https://sbfomos.org/fomos
 for developer instructions.
+
 
 How to use FOMOS?
 
@@ -28,3 +30,5 @@ At the top of the screen for the home screen of FOMOS there will be a button tha
 will open matchbox keyboard which will be used for writing text in Google for example.
 
 There are shutdown and restart buttons on the home screen and in settings if you need to turn off your device.
+
+In settings there is an update button, it will check and install and updates made to FOMOS and the restart your device.

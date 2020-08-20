@@ -8,12 +8,10 @@ sh installCFOMOSRequirements.sh
 
 echo "Moving files..."
 
-read -p "Enter your User Name: " usrName
+echo "Current user $USER"
 
-
-cd ~//
-cd ../../
-mv home/$usrName/Desktop/FOMOSv1-Yellow/startCFOMOS.sh
+cd ~//../../
+mv home/$USER/Desktop/FOMOSv1-Yellow/startCFOMOS.sh ~//../../
 
 
 echo "Setup is finished."
