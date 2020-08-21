@@ -83,8 +83,11 @@ int main(int argc, char **argv) {
     updateButton = gtk_button_new_with_label ("Update");
     generalSettings = gtk_label_new("General Settings");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
+    gtk_widget_set_name(shutdownBtn, "shutdownBtn");
     restartBtn = gtk_button_new_with_label ("Restart");
+    gtk_widget_set_name(restartBtn, "restartBtn");
     keyboardBtn = gtk_button_new_with_label ("Keyboard");
+    gtk_widget_set_name(keyboardBtn, "keyboardBtn");
     wifiSettings = gtk_label_new ("Wifi Settings");
     wifiSettingsBtn = gtk_button_new_with_label ("Open Wifi Settings");
     deviceCareSettings = gtk_label_new ("Device Care");
