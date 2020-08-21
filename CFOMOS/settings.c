@@ -38,7 +38,7 @@ int openDeviceCare () {
 }
 
 void changeToDarkTheme(GtkButton *button) {
-    printf("Adding dark theme to FOMOS... \n")
+    printf("Adding dark theme to FOMOS... \n");
     system("sh shellScripts/darkTheme.sh");
 }
 
