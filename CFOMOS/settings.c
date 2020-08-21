@@ -38,7 +38,13 @@ int openDeviceCare () {
 }
 
 void changeToDarkTheme(GtkButton *button) {
+    printf("Adding dark theme to FOMOS... \n")
     system("sh shellScripts/darkTheme.sh");
+}
+
+void changeToLightTheme(GtkButton *button) {
+    printf("Adding light theme to FOMOS... \n");
+    system("sh shellScripts/lightTheme.sh");
 }
 
 static gboolean refreshTime (gpointer user_data) {
@@ -126,6 +132,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), aboutBtn, 0, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), darkTheme, 6, 7, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), lightTheme, 12, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 8, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 9, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 10, 6, 1);
@@ -143,6 +150,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(deviceCareBtn), "clicked", G_CALLBACK(openDeviceCare), "Open Device Care Settings");
     g_signal_connect(G_OBJECT(aboutBtn), "clicked", G_CALLBACK(openAbout), "About");
     g_signal_connect(G_OBJECT(darkTheme), "clicked", G_CALLBACK(changeToDarkTheme), "Dark Theme");
+    g_signal_connect(G_OBJECT(lightTheme), "clicked", G_CALLBACK(changeToLightTheme), "Light Theme");
 
     gtk_main();
     return 0;
