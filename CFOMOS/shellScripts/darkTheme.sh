@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-echo "This works!"
+echo "Changing everything to dark theme..."
+sh compile.sh
+./darkTheme

@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
     updateButton = gtk_button_new_with_label ("Update");
     gtk_widget_set_name(updateButton, "updateBtn");
     generalSettings = gtk_label_new("General Settings");
-    darkTheme = gtk_label_new("Dark Theme");
+    darkTheme = gtk_button_new_with_label("Dark Theme");
     gtk_widget_set_name(darkTheme, "darkThemeBtn");
     lightTheme = gtk_label_new("Light Theme");
     gtk_widget_set_name(lightTheme, "lightThemeBtn");
@@ -125,7 +125,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), aboutBtn, 0, 7, 6, 1);
-    gtk_grid_attach (GTK_GRID(grid), darkTheme, 0, 7, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), darkTheme, 6, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 8, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 9, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 10, 6, 1);
