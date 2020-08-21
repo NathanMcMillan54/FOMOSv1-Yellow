@@ -15,3 +15,9 @@
     background-color: #0066ff;
     color: #bfbfbf;
 }
+
+#exitBtn {
+    background-image: none;
+    background-color: #bfbfbf;
+    color: #000000;
+}

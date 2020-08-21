@@ -5,11 +5,14 @@
 #include <iso646.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #define FLOAT_TEXT_WIDTH 31
 
 GtkWidget *textview;
 GtkTextBuffer *buffer;
+
+void cssButtons(void);
 
 void buttonExit() {
     exit(0);
@@ -234,6 +237,7 @@ static void activate(GtkApplication *app, gpointer user_data) {
 
     GtkWidget *exitButton = gtk_button_new_with_label ("o");
     g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(buttonExit), buttonExit);
+    gtk_widget_set_name(exitButton, "exitBtn");
     gtk_widget_set_size_request(exitButton, 100, 100);
     gtk_grid_attach (GTK_GRID (grid), exitButton, 2, 5, 1, 2);
 
@@ -258,9 +262,30 @@ static void activate(GtkApplication *app, gpointer user_data) {
 }
 
 int main(int argc, char **argv) {
+    cssButtons();
     GtkApplication *app = gtk_application_new("org.gtk.example", G_APPLICATION_FLAGS_NONE);
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     int status = g_application_run(G_APPLICATION(app), argc, argv);
     g_object_unref(app);
     return status;
+}
+
+void cssButtons(void){
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
+
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen,
+                                               GTK_STYLE_PROVIDER(provider),
+                                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const gchar *cssFile = "css/buttons.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider,
+                                    g_file_new_for_path(cssFile), &error);
+    g_object_unref (provider);
 }

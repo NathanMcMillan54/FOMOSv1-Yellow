@@ -55,9 +55,12 @@ static gboolean refreshTime (gpointer user_data) {
     return G_SOURCE_CONTINUE;
 }
 
+void cssButtons(void);
+
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
+    cssButtons();
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
@@ -75,6 +78,7 @@ int main(int argc, char **argv) {
     softwareSettings = gtk_label_new("Software Settings");
     version = gtk_label_new("You using FOMSOv1-Yellow: 1.1");
     exitButton = gtk_button_new_with_label ("o");
+    gtk_widget_set_name(exitButton, "exitBtn");
     gtk_widget_set_size_request(exitButton, 100, 100);
     updateButton = gtk_button_new_with_label ("Update");
     generalSettings = gtk_label_new("General Settings");
@@ -125,4 +129,24 @@ int main(int argc, char **argv) {
 
     gtk_main();
     return 0;
+}
+
+void cssButtons(void){
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
+
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen,
+                                               GTK_STYLE_PROVIDER(provider),
+                                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const gchar *cssFile = "css/buttons.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider,
+                                    g_file_new_for_path(cssFile), &error);
+    g_object_unref (provider);
 }
