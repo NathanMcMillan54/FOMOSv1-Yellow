@@ -16,6 +16,24 @@
     color: #bfbfbf;
 }
 
+#updateBtn {
+    background-image: none;
+    background-color: #e6e600;
+    color: #000000;
+}
+
+#darkThemeBtn {
+    background-image: none;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#lightThemeBtn {
+    background-image: none;
+    background-color: #ffffff;
+    color: #000000;
+}
+
 #exitBtn {
     background-image: none;
     background-color: #bfbfbf;

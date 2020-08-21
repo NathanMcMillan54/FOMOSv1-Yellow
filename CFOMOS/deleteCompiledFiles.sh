@@ -11,4 +11,6 @@ rm -rf settings
 rm -rf shutdown
 rm -rf restart
 rm -rf calculator
+rm -rf darkTheme
+rm -rf lightTheme
 echo "Finished deleting compiled files"

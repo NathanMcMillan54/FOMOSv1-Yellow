@@ -10,3 +10,9 @@ echo "Compiling shutdown.c"
 gcc -Wall shutdown.c -o shutdown
 echo "Compiling restart.c"
 gcc -Wall restart.c -o restart
+echo "Compiling darkTheme.c"
+gcc -Wall darkTheme.c -o darkTheme
+echo "  "
+echo "Compiling eye cancer"
+echo "lightTheme.c"
+gcc -Wall lightTheme.c -o lightTheme

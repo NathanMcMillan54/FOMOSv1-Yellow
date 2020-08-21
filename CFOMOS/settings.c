@@ -37,6 +37,10 @@ int openDeviceCare () {
     system("sh openDeviceCare.sh");
 }
 
+void changeToDarkTheme(GtkButton *button) {
+    system("sh shellScripts/darkTheme.sh");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -73,7 +77,7 @@ int main(int argc, char **argv) {
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
     // buttons
-    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn, *deviceCareBtn, *aboutBtn;
+    GtkWidget *exitButton, *updateButton, *shutdownBtn, *restartBtn, *keyboardBtn, *wifiSettingsBtn, *deviceCareBtn, *aboutBtn, *darkTheme, *lightTheme;
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
@@ -83,7 +87,12 @@ int main(int argc, char **argv) {
     gtk_widget_set_name(exitButton, "exitBtn");
     gtk_widget_set_size_request(exitButton, 100, 100);
     updateButton = gtk_button_new_with_label ("Update");
+    gtk_widget_set_name(updateButton, "updateBtn");
     generalSettings = gtk_label_new("General Settings");
+    darkTheme = gtk_label_new("Dark Theme");
+    gtk_widget_set_name(darkTheme, "darkThemeBtn");
+    lightTheme = gtk_label_new("Light Theme");
+    gtk_widget_set_name(lightTheme, "lightThemeBtn");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     gtk_widget_set_name(shutdownBtn, "shutdownBtn");
     restartBtn = gtk_button_new_with_label ("Restart");
@@ -116,6 +125,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), restartBtn, 6, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), keyboardBtn, 12, 6, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), aboutBtn, 0, 7, 6, 1);
+    gtk_grid_attach (GTK_GRID(grid), darkTheme, 0, 7, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettings, 0, 8, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), wifiSettingsBtn, 0, 9, 6, 1);
     gtk_grid_attach (GTK_GRID(grid), deviceCareSettings, 0, 10, 6, 1);
@@ -132,6 +142,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(wifiSettingsBtn), "clicked", G_CALLBACK(openWifiSettings), "Open Wifi Settings");
     g_signal_connect(G_OBJECT(deviceCareBtn), "clicked", G_CALLBACK(openDeviceCare), "Open Device Care Settings");
     g_signal_connect(G_OBJECT(aboutBtn), "clicked", G_CALLBACK(openAbout), "About");
+    g_signal_connect(G_OBJECT(darkTheme), "clicked", G_CALLBACK(changeToDarkTheme), "Dark Theme");
 
     gtk_main();
     return 0;
