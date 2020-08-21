@@ -56,11 +56,13 @@ static gboolean refreshTime (gpointer user_data) {
 }
 
 void cssButtons(void);
+void cssWindow(void);
 
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
 
     cssButtons();
+    cssWindow();
     // GUi
     GtkWidget *window;
     GtkWidget *grid;
@@ -94,6 +96,7 @@ int main(int argc, char **argv) {
     deviceCareBtn = gtk_button_new_with_label("Open Device Care Settings");
     aboutBtn = gtk_button_new_with_label("About");
     grid = gtk_grid_new ();
+    gtk_widget_set_name(window, "window");
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -153,3 +156,25 @@ void cssButtons(void){
                                     g_file_new_for_path(cssFile), &error);
     g_object_unref (provider);
 }
+
+
+void cssWindow(void){
+    GtkCssProvider *provider;
+    GdkDisplay *display;
+    GdkScreen *screen;
+
+    provider = gtk_css_provider_new ();
+    display = gdk_display_get_default ();
+    screen = gdk_display_get_default_screen (display);
+    gtk_style_context_add_provider_for_screen (screen,
+                                               GTK_STYLE_PROVIDER(provider),
+                                               GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    const gchar *cssFile = "css/windowColor.css";
+    GError *error = 0;
+
+    gtk_css_provider_load_from_file(provider,
+                                    g_file_new_for_path(cssFile), &error);
+    g_object_unref (provider);
+}
+
