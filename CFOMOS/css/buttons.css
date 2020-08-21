@@ -1,0 +1,17 @@
+#shutdownBtn {
+    background-image: none;
+    background-color: #f44336;
+    color: #bfbfbf;
+}
+
+#restartBtn {
+    background-image: none;
+    background-color: #ff751a;
+    color: #bfbfbf;
+}
+
+#keyboardBtn {
+    background-image: none;
+    background-color: #0066ff;
+    color: #bfbfbf;
+}

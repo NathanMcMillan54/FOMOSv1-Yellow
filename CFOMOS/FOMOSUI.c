@@ -47,14 +47,14 @@ static gboolean refreshTime (gpointer user_data) {
     return G_SOURCE_CONTINUE;
 }
 
-void css(void);
+void cssButtons(void);
 
 int main(int argc, char **argv) {
     gtk_init (&argc,&argv);
     char google[50] = "Google";
     char settings[50] = "Settings";
 
-    css();
+    cssButtons();
 
     // GUi
     GtkWidget *window;
@@ -64,16 +64,17 @@ int main(int argc, char **argv) {
     g_timeout_add (1000, refreshTime, timeText);
     GtkWidget *grid;
 
-    gtk_widget_set_name(grid, "fomosuiGrid");
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
     settingsButton = gtk_button_new_with_label (settings);
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     gtk_widget_set_name(shutdownBtn, "shutdownBtn");
     restartBtn = gtk_button_new_with_label ("Restart");
+    gtk_widget_set_name(restartBtn, "restartBtn");
     googleButton = gtk_button_new_with_label (google);
     calculatorButton = gtk_button_new_with_label ("Calculator");
     keyboardButton = gtk_button_new_with_label ("Keyboard");
+    gtk_widget_set_name(keyboardButton, "keyboardBtn");
 
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_label_set_selectable (GTK_LABEL(timeText), TRUE);
@@ -102,7 +103,7 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-void css(void){
+void cssButtons(void){
     GtkCssProvider *provider;
     GdkDisplay *display;
     GdkScreen *screen;
@@ -114,7 +115,7 @@ void css(void){
                                                GTK_STYLE_PROVIDER(provider),
                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-    const gchar *cssFile = "css/FOMOSUI.css";
+    const gchar *cssFile = "css/buttons.css";
     GError *error = 0;
 
     gtk_css_provider_load_from_file(provider,
