@@ -4,7 +4,7 @@
 #include <time.h>
 #include <unistd.h>
 
-void buttonExit() {
+void exitSettings() {
     exit(0);
 }
 
@@ -40,11 +40,13 @@ int openDeviceCare () {
 void changeToDarkTheme(GtkButton *button) {
     printf("Adding dark theme to FOMOS... \n");
     system("python3 setDarkTheme.py");
+    exitSettings();
 }
 
 void changeToLightTheme(GtkButton *button) {
     printf("Adding light theme to FOMOS... \n");
     system("python3 setLightTheme.py");
+    exitSettings();
 }
 
 static gboolean refreshTime (gpointer user_data) {
@@ -97,7 +99,7 @@ int main(int argc, char **argv) {
     generalSettings = gtk_label_new("General Settings");
     darkTheme = gtk_button_new_with_label("Dark Theme");
     gtk_widget_set_name(darkTheme, "darkThemeBtn");
-    lightTheme = gtk_label_new("Light Theme");
+    lightTheme = gtk_button_new_with_label("Light Theme");
     gtk_widget_set_name(lightTheme, "lightThemeBtn");
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     gtk_widget_set_name(shutdownBtn, "shutdownBtn");
@@ -141,7 +143,7 @@ int main(int argc, char **argv) {
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
-    g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(buttonExit), buttonExit);
+    g_signal_connect(G_OBJECT(exitButton), "clicked", G_CALLBACK(exitSettings), exitSettings);
     g_signal_connect(G_OBJECT(updateButton), "clicked", G_CALLBACK(buttonUpdate), buttonUpdate);
     g_signal_connect(G_OBJECT(shutdownBtn), "clicked", G_CALLBACK(shutdownFOMOS), "Shutdown");
     g_signal_connect(G_OBJECT(restartBtn), "clicked", G_CALLBACK(restartFOMOS), "Restart");
