@@ -39,12 +39,12 @@ int openDeviceCare () {
 
 void changeToDarkTheme(GtkButton *button) {
     printf("Adding dark theme to FOMOS... \n");
-    system("sh shellScripts/darkTheme.sh");
+    system("python3 setDarkTheme.py");
 }
 
 void changeToLightTheme(GtkButton *button) {
     printf("Adding light theme to FOMOS... \n");
-    system("sh shellScripts/lightTheme.sh");
+    system("python3 setLightTheme.py");
 }
 
 static gboolean refreshTime (gpointer user_data) {

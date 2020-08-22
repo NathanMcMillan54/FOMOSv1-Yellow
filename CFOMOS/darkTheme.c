@@ -15,7 +15,5 @@ int main() {
         fclose(cssFile);
     }
 
-    system("./restart");
-
     return 0;
 }

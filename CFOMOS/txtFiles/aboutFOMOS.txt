@@ -1,5 +1,5 @@
 -----------------------
-| FOMOSv1-Yellow v1.2 |
+| FOMOSv1-Yellow v1.3 |
 -----------------------
 
 
@@ -32,3 +32,6 @@ will open matchbox keyboard which will be used for writing text in Google for ex
 There are shutdown and restart buttons on the home screen and in settings if you need to turn off your device.
 
 In settings there is an update button, it will check and install and updates made to FOMOS and the restart your device.
+
+In settings there are two buttons that will change between dark and light theme, FOMOSv1-Yellow v1.3 is set to dark theme
+by default.
