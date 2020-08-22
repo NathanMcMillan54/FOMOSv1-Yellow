@@ -12,7 +12,8 @@ int main() {
                    "}";
 
 
-    if ( (cssFile = fopen("css/windowColor.css", "a") ) == NULL)
+
+    if ( (cssFile = fopen("css/windowColor.css", "w") ) == NULL)
         printf("Cannot change to light theme \n");
     else {
         fputs(css, cssFile);
