@@ -7,13 +7,21 @@ int main() {
     printf("Ur probably going blind from the bright light of ur screen! \n");
 
     FILE *cssFile;
-    char css[50] = "#window {\n"
-                   "    background-color: #EAEAEA;\n"
-                   "}";
+    char css[150] = "#window {\n"
+                    "    background-color: #B2B2B2;\n"
+                    "}\n"
+                    "\n"
+                    "#time {\n"
+                    "    color: #000000;\n"
+                    "}\n"
+                    "\n"
+                    "#text {\n"
+                    "    color: #000000;\n"
+                    "}";
 
 
 
-    if ( (cssFile = fopen("css/windowColor.css", "w") ) == NULL)
+    if ( (cssFile = fopen("css/lightDarkTheme.css", "w") ) == NULL)
         printf("Cannot change to light theme \n");
     else {
         fputs(css, cssFile);

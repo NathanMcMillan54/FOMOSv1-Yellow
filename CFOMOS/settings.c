@@ -114,6 +114,13 @@ int main(int argc, char **argv) {
     aboutBtn = gtk_button_new_with_label("About");
     grid = gtk_grid_new ();
     gtk_widget_set_name(window, "window");
+    gtk_widget_set_name(timeText, "time");
+    gtk_widget_set_name(settings, "text");
+    gtk_widget_set_name(softwareSettings, "text");
+    gtk_widget_set_name(version, "text");
+    gtk_widget_set_name(generalSettings, "text");
+    gtk_widget_set_name(wifiSettings, "text");
+    gtk_widget_set_name(deviceCareSettings, "text");
 
     gtk_window_set_title (GTK_WINDOW (window), "Settings");
     gtk_window_fullscreen(GTK_WINDOW(window));
@@ -191,7 +198,7 @@ void cssWindow(void){
                                                GTK_STYLE_PROVIDER(provider),
                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-    const gchar *cssFile = "css/windowColor.css";
+    const gchar *cssFile = "css/lightDarkTheme.css";
     GError *error = 0;
 
     gtk_css_provider_load_from_file(provider,

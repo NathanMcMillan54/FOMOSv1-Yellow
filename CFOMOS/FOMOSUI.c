@@ -78,6 +78,7 @@ int main(int argc, char **argv) {
     keyboardButton = gtk_button_new_with_label ("Keyboard");
     gtk_widget_set_name(keyboardButton, "keyboardBtn");
     gtk_widget_set_name(window, "window");
+    gtk_widget_set_name(timeText, "time");
 
     gtk_window_fullscreen(GTK_WINDOW(window));
     gtk_label_set_selectable (GTK_LABEL(timeText), TRUE);
@@ -138,7 +139,7 @@ void cssWindow(void){
                                                GTK_STYLE_PROVIDER(provider),
                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-    const gchar *cssFile = "css/windowColor.css";
+    const gchar *cssFile = "css/lightDarkTheme.css";
     GError *error = 0;
 
     gtk_css_provider_load_from_file(provider,
