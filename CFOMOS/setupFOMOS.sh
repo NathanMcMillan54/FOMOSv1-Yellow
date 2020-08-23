@@ -11,7 +11,7 @@ echo "Moving files..."
 echo "Current user $USER"
 
 cd ~//../../
-mv /home/$USER/Desktop/FOMOSv1-Yellow/startCFOMOS.sh ~//../../
+mv /home/$USER/Desktop/FOMOSv1-Yellow/startCFOMOS.sh ~//../../etc/profile.d/
 
 
 echo "Setup is finished."
