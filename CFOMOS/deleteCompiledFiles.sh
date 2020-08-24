@@ -11,6 +11,8 @@ rm -rf settings
 rm -rf shutdown
 rm -rf restart
 rm -rf calculator
+rm -rf makeUsrFile
+rm -rf openUsrFile
 rm -rf darkTheme
 rm -rf lightTheme
 echo "Finished deleting compiled files"

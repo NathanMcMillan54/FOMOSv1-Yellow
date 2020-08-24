@@ -10,6 +10,10 @@ echo "Compiling shutdown.c"
 gcc -Wall shutdown.c -o shutdown
 echo "Compiling restart.c"
 gcc -Wall restart.c -o restart
+echo "Compiling makeUsrFile.c"
+gcc -Wall makeUsrFile.c -o makeUsrFile
+echo "Compiling openUsrFile.c"
+gcc -Wall openUsrFile.c -o openUsrFile
 echo "Compiling darkTheme.c"
 gcc -Wall darkTheme.c -o darkTheme
 echo "  "
