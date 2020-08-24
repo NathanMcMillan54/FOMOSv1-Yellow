@@ -22,6 +22,32 @@
     color: #000000;
 }
 
+#aboutBtn {
+    background-image: none;
+    background-color: #e6e600;
+    color: #000000;
+}
+
+#settingsBtn {
+    background-color: #999999;
+    color: #bfbfbf;
+    background-image: url("images/settings.png");
+    background-repeat: no-repeat;
+}
+
+#googleBtn {
+    background: linear-gradient(-60deg, #1a8cff 50%, #33cc33 50% );
+    color: #f44336;
+}
+
+
+#calculatorBtn {
+    background-image: url("images/calculator.png");
+    background-repeat: no-repeat;
+    background-color: #e6e600;
+    color: #3d5c5c;
+}
+
 #darkThemeBtn {
     background-image: none;
     background-color: #000000;

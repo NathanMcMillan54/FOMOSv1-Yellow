@@ -68,13 +68,24 @@ int main(int argc, char **argv) {
 
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     grid = gtk_grid_new ();
+
     settingsButton = gtk_button_new_with_label (settings);
+    gtk_widget_set_name(settingsButton, "settingsBtn");
+    gtk_widget_set_size_request(settingsButton, 100, 100);
+
     shutdownBtn = gtk_button_new_with_label ("Shutdown");
     gtk_widget_set_name(shutdownBtn, "shutdownBtn");
     restartBtn = gtk_button_new_with_label ("Restart");
     gtk_widget_set_name(restartBtn, "restartBtn");
+
     googleButton = gtk_button_new_with_label (google);
+    gtk_widget_set_name(googleButton, "googleBtn");
+    gtk_widget_set_size_request(googleButton, 100, 100);
+
     calculatorButton = gtk_button_new_with_label ("Calculator");
+    gtk_widget_set_name(calculatorButton, "calculatorBtn");
+    gtk_widget_set_size_request(calculatorButton, 100, 100);
+
     keyboardButton = gtk_button_new_with_label ("Keyboard");
     gtk_widget_set_name(keyboardButton, "keyboardBtn");
     gtk_widget_set_name(window, "window");

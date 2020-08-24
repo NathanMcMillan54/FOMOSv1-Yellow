@@ -112,6 +112,7 @@ int main(int argc, char **argv) {
     deviceCareSettings = gtk_label_new ("Device Care");
     deviceCareBtn = gtk_button_new_with_label("Open Device Care Settings");
     aboutBtn = gtk_button_new_with_label("About");
+    gtk_widget_set_name(aboutBtn, "aboutBtn");
     grid = gtk_grid_new ();
     gtk_widget_set_name(window, "window");
     gtk_widget_set_name(timeText, "time");
