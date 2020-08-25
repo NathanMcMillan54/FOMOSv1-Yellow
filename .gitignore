@@ -4,3 +4,4 @@ cmake-build-debug
 CFOMOS/cHeaderFiles/openUsrFile.h
 CFOMOS/makeUsrFile.c
 CFOMOS/openUsrFile.c
+CFOMOS/usrFiles

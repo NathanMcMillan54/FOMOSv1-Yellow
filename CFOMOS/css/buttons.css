@@ -37,9 +37,13 @@
 
 #googleBtn {
     background: linear-gradient(-60deg, #1a8cff 50%, #33cc33 50% );
-    color: #f44336;
+    color: #e60000;
 }
 
+#googleBtn:hover {
+    background: linear-gradient(60deg, #ffff00 50%, #f44336 50% );
+    color: #0066ff;
+}
 
 #calculatorBtn {
     background-image: url("images/calculator.png");
