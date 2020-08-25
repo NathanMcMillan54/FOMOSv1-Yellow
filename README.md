@@ -28,6 +28,20 @@ sh setupFOMOS.sh
 
 That file will move ```startFOMOS.sh``` to a place where it can make FOMOS run on startup.
 
+For everything to work properly type
+```shell script
+sudo visudo
+```
+
+This will open the Linux sudoers file.
+
+In that type:
+```shell script
+%users All NOPASSWD: ALL
+```
+
+This makes your device very insecure but it will make FOMOS work.
+
 #
 If that doesn't work you'll have to manually add ```startFOMOS.sh``` to ```/etc/profile.d``` with a startup command for FOMOS.
 
