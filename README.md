@@ -16,7 +16,7 @@ you want with it or make it easier to use. You can contribute to FOMOS by making
 
 To start FOMOS run
 ```shell script
-sh startCFOMOS.sh
+sh startFOMOS.sh
 ```
 
 This will run a C file that compiles all FOMOS files and then runs FOMOSUI.c.
@@ -26,7 +26,10 @@ To setup FOMOS run
 sh setupFOMOS.sh
 ```
 
-That file will move ```startCFOMOS.sh``` to a place where it can make FOMOS run on startup.
+That file will move ```startFOMOS.sh``` to a place where it can make FOMOS run on startup.
+
+#
+If that doesn't work you'll have to manually add ```startFOMOS.sh``` to ```/ete/profile.d``` with a startup command for FOMOS.
 
 #
 # For developers

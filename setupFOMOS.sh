@@ -4,14 +4,14 @@ echo "Updating FOMOS..."
 sh osShellScripts/updateCFOMOS.sh
 
 echo "Installing requirements..."
-sh installCFOMOSRequirements.sh
+sh installFOMOSRequirements.sh
 
 echo "Moving files..."
 
 echo "Current user $USER"
 
 cd ~//../../
-mv /home/$USER/Desktop/FOMOSv1-Yellow/startCFOMOS.sh ~//../../etc/profile.d/
+mv /home/$USER/Desktop/FOMOSv1-Yellow/startFOMOS.sh ~//../../etc/profile.d/
 
 
 echo "Setup is finished."
