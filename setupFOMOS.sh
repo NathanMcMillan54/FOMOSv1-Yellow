@@ -21,6 +21,15 @@ read -p "Is it ok to restart now? (y/n) " input
 if [ "$input" = "y" ]; then
   echo "Restarting and adding FOMOS GUI..."
   reboot
+elif [ "$input" = "Y" ]; then
+  echo "Restarting and adding FOMOS GUI..."
+  reboot
+elif [ "$input" = "n" ]; then
+    echo "Restart your device soon."
+elif [ "$input" = "N" ]; then
+    echo "Restart your device soon."
 else
-  echo "Restart your device soon."
+  # if u thought i (Nathan McMillan) would make something to ask
+  # the question again then u was wrong
+  echo "You didn't input y or n"
 fi

@@ -29,7 +29,7 @@ sh setupFOMOS.sh
 That file will move ```startFOMOS.sh``` to a place where it can make FOMOS run on startup.
 
 #
-If that doesn't work you'll have to manually add ```startFOMOS.sh``` to ```/ete/profile.d``` with a startup command for FOMOS.
+If that doesn't work you'll have to manually add ```startFOMOS.sh``` to ```/etc/profile.d``` with a startup command for FOMOS.
 
 #
 # For developers
