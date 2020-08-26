@@ -1,5 +1,5 @@
 #include <math.h>
-#include <gtk/gtk.h>
+#include <gtk-3.0/gtk/gtk.h>
 #include <string.h>
 #include "cHeaderFiles/calculatorButtons.h"
 #include <iso646.h>
