@@ -15,3 +15,6 @@ sudo apt-get install network-manager
 
 echo "Installing x-term teminal..."
 sudo apt-get install xterm
+
+echo "Installing ElectronJs..."
+npm install

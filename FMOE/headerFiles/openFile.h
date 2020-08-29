@@ -1,0 +1,1 @@
+#define MAXCHAR 1000

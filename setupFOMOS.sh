@@ -7,7 +7,6 @@ echo "Installing requirements..."
 sh installFOMOSRequirements.sh
 
 echo "Moving files..."
-
 echo "Current user $USER"
 
 cd ~//../../
