@@ -29,6 +29,10 @@ void keyboard (GtkButton *button) {
     system("sh shellScripts/keyboard.sh");
 }
 
+void FMOE (GtkButton *button) {
+    system("sh shellScripts/FMOE.sh");
+}
+
 static gboolean refreshTime (gpointer user_data) {
 
     GtkLabel *timeText = GTK_LABEL (user_data);
@@ -60,7 +64,7 @@ int main(int argc, char **argv) {
 
     // GUi
     GtkWidget *window;
-    GtkWidget *settingsButton, *googleButton, *calculatorButton, *keyboardButton;
+    GtkWidget *settingsButton, *googleButton, *calculatorButton, *keyboardButton, *FMOEButton;
     GtkWidget *shutdownBtn, *restartBtn;
     GtkWidget *timeText = gtk_label_new("Time");
     g_timeout_add (1000, refreshTime, timeText);
@@ -86,6 +90,10 @@ int main(int argc, char **argv) {
     gtk_widget_set_name(calculatorButton, "calculatorBtn");
     gtk_widget_set_size_request(calculatorButton, 100, 100);
 
+    FMOEButton = gtk_button_new_with_label ("FMOE");
+    gtk_widget_set_name(FMOEButton, "FMOEBtn");
+    gtk_widget_set_size_request(FMOEButton, 100, 100);
+
     keyboardButton = gtk_button_new_with_label ("Keyboard");
     gtk_widget_set_name(keyboardButton, "keyboardBtn");
     gtk_widget_set_name(window, "window");
@@ -104,6 +112,7 @@ int main(int argc, char **argv) {
     gtk_grid_attach (GTK_GRID(grid), settingsButton, 0, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), googleButton, 1, 1, 1, 1);
     gtk_grid_attach (GTK_GRID(grid), calculatorButton, 2, 1, 1, 1);
+    gtk_grid_attach (GTK_GRID(grid), FMOEButton, 3, 1, 1, 1);
 
     gtk_widget_show_all (window);
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
@@ -113,6 +122,7 @@ int main(int argc, char **argv) {
     g_signal_connect(G_OBJECT(googleButton), "clicked", G_CALLBACK(openGoogle), google);
     g_signal_connect(G_OBJECT(calculatorButton), "clicked", G_CALLBACK(openCalculator), "Calculator");
     g_signal_connect(G_OBJECT(keyboardButton), "clicked", G_CALLBACK(keyboard), "Keyboard");
+    g_signal_connect(G_OBJECT(FMOEButton), "clicked", G_CALLBACK(FMOE), "FMOE");
 
     gtk_main();
     return 0;
