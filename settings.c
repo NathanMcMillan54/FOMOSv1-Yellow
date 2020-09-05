@@ -90,7 +90,7 @@ int main(int argc, char **argv) {
     window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
     settings = gtk_label_new("Settings");
     softwareSettings = gtk_label_new("Software Settings");
-    version = gtk_label_new("You using FOMSOv1-Yellow: 1.3");
+    version = gtk_label_new("You using FOMSOv1-Yellow: 1.4.2");
     exitButton = gtk_button_new_with_label ("o");
     gtk_widget_set_name(exitButton, "exitBtn");
     gtk_widget_set_size_request(exitButton, 100, 100);
