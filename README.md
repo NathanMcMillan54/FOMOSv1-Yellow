@@ -5,7 +5,7 @@ FOMOSv1-Yellow is an opensource GUI replacement for Linux made with C GTK.
 
 FOMOS stand for: Free, Opensource, Mobile, Operating, System
 
-One day FOMSO will become it's own operating system but for now it'll just be a GUI replacement.
+One day FOMOS will become it's own operating system but for now it'll just be a GUI replacement.
 #
 # About
 FOMOS is made with C GTK which is a C library used for make GUIs. Since FOMOS is opensource you can make it do whatever 
