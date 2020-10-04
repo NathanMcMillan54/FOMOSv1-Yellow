@@ -51,10 +51,12 @@ If that doesn't work you'll have to manually add ```startFOMOS.sh``` to ```/etc/
 You can do whatever you want with FOMOSv1-Yellow but if you are adding stuff to it's Github repository run this after you're done:
 
 ```shell script
-sh deleteCompiledFiles.sh
+make clean
+cd FMOE
+make clean
 ```
 
-This will delete any compiled file so you don't have to delete them manually, also compiled files shouldn't be in the repository.
+This will delete any compiled files so you don't have to delete them manually, also compiled files shouldn't be in the repository.
 
 
 In credits.txt it will show files that were copied from other people and where to find the original code.

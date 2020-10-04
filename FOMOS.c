@@ -5,8 +5,8 @@
 int main() {
     printf("Starting FOMOS... \n");
     printf("\nCompiling files... \n");
-    system("sh compile.sh");
+    system("make all");
     printf("\nStarting UI...\n");
-    system("./FOMOSUI");
+    system("./FOMOSUI.o");
     return 0;
 }

@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 void openSettings (GtkButton *button) {
-    system("./settings");
+    system("./settings.o");
 }
 
 void openGoogle (GtkButton *button) {
@@ -14,15 +14,15 @@ void openGoogle (GtkButton *button) {
 }
 
 void openCalculator (GtkButton *button) {
-    system("./calculator");
+    system("./calculator.o");
 }
 
 void shutdownFOMOS (GtkButton *button) {
-    system("./shutdown");
+    system("./shutdown.o");
 }
 
 void restartFOMOS (GtkButton *button) {
-    system("./restart");
+    system("./restart.o");
 }
 
 void keyboard (GtkButton *button) {

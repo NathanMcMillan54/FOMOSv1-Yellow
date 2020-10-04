@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 cd FMOE/
-sh compile.sh
+make all
 xterm -hold -e "./FMOE"
