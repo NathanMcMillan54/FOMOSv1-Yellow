@@ -2,7 +2,10 @@ extern crate apps;
 use apps::{settings};
 
 extern crate gtk;
-use gtk::{prelude::*};
+use gtk::{prelude::*, Application};
+
+extern crate gio;
+use gio::{prelude::*};
 
 extern crate serde_json;
 
