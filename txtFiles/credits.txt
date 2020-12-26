@@ -1,9 +1,0 @@
-File name                          | Where to find
-------------------------------------------------------------------------------------------------------------------------
-calculator.c                       | copied and edited from https://github.com/xdevelnet/n0calc
-cHeaderFiles/calculatorButtons.h   | copied and edited from https://github.com/xdevelnet/n0calc
-                                   |
-main.js                            | copied and edited from https://github.com/NathanMcMillan54/connectToWifi-ElectronJs
-script.js                          | copied and edited from https://github.com/NathanMcMillan54/connectToWifi-ElectronJs
-index.html                         | copied and edited from https://github.com/NathanMcMillan54/connectToWifi-ElectronJs
-style.css                          | copied and edited from https://github.com/NathanMcMillan54/connectToWifi-ElectronJs
