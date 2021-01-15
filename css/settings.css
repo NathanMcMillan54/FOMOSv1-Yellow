@@ -1,0 +1,49 @@
+body {
+    background-color: #cccccc;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+}
+
+.settings {
+    padding: 24px;
+    background-color: #bfbfbf;
+    text-align: center;
+}
+
+.general {
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #3d5c5c;
+}
+
+.wifi {
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #666699;
+}
+
+.software {
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #757557;
+}
+
+.device {
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #602040;
+}
