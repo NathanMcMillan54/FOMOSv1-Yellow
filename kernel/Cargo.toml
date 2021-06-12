@@ -5,6 +5,7 @@ edition = "2018"
 
 [dependencies]
 libnu = "0.1.2"
+novusk_syscalls = { version = "0.1.0", features = ["novusk_uefi"] }
 
 [dependencies.aarch64]
 git = "https://github.com/NathanMcMillan54/novusk/"
