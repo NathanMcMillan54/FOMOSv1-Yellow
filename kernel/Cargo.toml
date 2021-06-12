@@ -1,0 +1,13 @@
+[package]
+name = "kernel"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+libnu = "0.1.2"
+
+[dependencies.aarch64]
+git = "https://github.com/NathanMcMillan54/novusk/"
+tag = "v2.1.2"
+path = "arch/aarch64/"
+features = ["default_machine"]

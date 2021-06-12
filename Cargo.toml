@@ -1,0 +1,13 @@
+[package]
+name = "FOMOSv1-Yellow"
+version = "1.4.3"
+authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
+edition = "2018"
+
+[workspace]
+members = [
+    "kernel/",
+]
+
+[dependencies]
+kernel = { path = "kernel/" }
