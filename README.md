@@ -1,4 +1,4 @@
-# FOMOSv1-Yellow
+# FOMOSv1-Yellow Novusk v2.1.3
 
 Free, Open source, Mobile, Operating, System. An Aarch64 Novusk based OS.
 

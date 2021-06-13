@@ -3,3 +3,5 @@ target/
 
 Cargo.lock
 FOMOSv1-Yellow
+OVMF-pure-efi.fd
+x86_64-novusk.json
