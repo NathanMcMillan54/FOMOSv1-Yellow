@@ -4,10 +4,9 @@ version = "1.4.3"
 authors = ["Nathan McMillan <nathanmcmillan54@gmail.com>"]
 edition = "2018"
 
-[workspace]
-members = [
-    "kernel/",
-]
-
 [dependencies]
-kernel = { path = "kernel/" }
+novusk = { git = "https://github.com/NathanMcMillan54/novusk", features = ["custom_config"] }
+
+[features]
+stm32f4 = ["novusk/stm32f407"]
+stellaris = ["novusk/stellaris_6965"]
